@@ -1,0 +1,1657 @@
+0001, 0002, 0003, 0004, 0006, 0007, 0008, 0009,
+0010, 0011, 0012, 0013, 0015, 0016, 0017, 0018, 0019
+0020, 0021, 0022, 0023, 0024, 0026, 0027, 0028, 0029
+0031, 0032, 0033, 0034, 0035, 0036, 0038, 0039
+0040, 0041, 0043, 0046, 0047, 0048
+
+0050, 0054, 0056, 0058, 0059
+0060, 0061, 0066, 0067
+0073, 0074, 0075, 0077, 0078, 0079
+0080, 0081, 0082, 0083, 0086, 0088
+0092, 0093, 0094, 0098
+
+0100, 0101, 0102, 0103, 0104, 0105, 0106, 0107, 0108, 0109
+0110, 0111, 0112, 0113, 0116, 0118, 0119
+0121, 0122, 0125, 0129
+0130, 0134, 0136, 0139,
+0141, 0142, 0143, 0144, 0145, 0146, 0147, 0148
+
+0150, 0151, 0154, 0155
+0160, 0162, 0163, 0164, 0165, 0167, 0168, 0169
+0171, 0173, 0179
+0187, 0189
+0190, 0191, 0192, 0193, 0194, 0199
+
+0200, 0201, 0202, 0203, 0204, 0205, 0206, 0209
+0211, 0215, 0216, 0217, 0219,
+0220, 0222, 0223, 0226, 0228, 0229
+0230, 0231, 0234, 0235, 0236, 0237, 0238
+0240, 0242, 0249
+
+0257, 0258
+0260, 0263, 0268
+0274, 0275, 0278
+0280, 0283, 0286, 0287, 0289
+0290, 0292, 0299
+
+0303, 0306
+0315, 0318, 0319
+0324, 0325, 0326, 0328
+0334, 0339
+0340, 0346, 0347
+
+0350
+0388, 0389
+0392, 0399
+
+0404, 0405, 0406
+0429
+0439
+0448
+
+0450, 0459
+0463
+0483, 0485
+
+0501
+0526
+0535, 0538
+0541, 0543
+
+0557, 0559
+0573, 0575
+0589, 0590
+
+0605, 0606, 0609
+0611, 0617
+0622, 0623, 0628
+0632, 0633, 0636, 0638
+0640, 0641, 0643, 0645, 0647, 0649
+
+0653
+0662, 0669
+0681, 0682
+0692, 0694, 0695
+
+0701, 0702, 0704, 0708, 0709
+0710
+0733, 0738
+
+0756
+0760
+0771, 0775
+0785
+0791, 0796, 0799
+
+0807
+0821
+0839
+0842
+
+0860, 0863, 0865, 0866
+0876
+0883, 0888
+0890, 0892, 0893
+
+0921
+
+0965
+0973
+0980
+
+1002, 1003
+1014, 1016
+1022, 1023
+1038
+1047
+
+1065
+1085, 1086
+
+1103, 1108, 1109
+1119
+1122
+1133
+
+1151
+1165
+1171
+1184
+1190, 1196
+
+1200, 1208, 1209
+1213
+1221
+1233
+1247, 1249
+
+1254
+1265, 1268
+1281
+1290, 1295, 1296, 1299
+
+1304
+1310, 1311, 1313, 1315, 1318
+1323, 1324, 1329
+1330, 1332
+1342
+
+1351, 1356, 1358
+1365, 1366, 1367
+1370, 1373, 1374, 1375, 1376, 1377, 1379
+1380, 1389
+1392, 1394
+
+DO AGAIN: 0581, 0807,
+
+NOT APPLICABLE:
+0181, 0185, 0579, 0596, 0620, 1068, 1069, 1141, 1264, 1270, 1285, 1303, 1308, 1350, 1378
+
+------------------------------------------------------------------------------------------------------------------------
+DATA STRUCTURE IMPLEMENTATION: (MUST CODE THESE)
+0703 -> Kth largest element in a tree
+- Min Heap
+- Self balancing binary search tree (Red-Black tree, AVL tree, Splay tree)
+0704 -> Binary Search
+0705 -> Design Hashset
+0706 -> Design Hashmap
+0707 -> Design LinkedList
+
+------------------------------------------------------------------------------------------------------------------------
+Array Questions
+
+0001 -> Two Sum
+- use hashmap
+- use two pointers
+0167 -> Two Sum (sorted array)
+- use two pointers
+0015 -> Three Sum (Target = 0)
+- sort numbers and loop through for each -ve element and use two sum pointer technique, take care of duplicates
+0016 -> Three Sum Closest
+- sort numbers, loop through each element, use two pointer technique, find closest to target and maintain result
+0018 -> Four Sum
+- sort numbers, pick two elements (non duplicate), use two-sum pointer technique, find (target - two taken numbers)
+
+0026 -> Remove duplicates from sorted array
+- move two pointers and swap as needed
+0027 -> Remove elements
+- move two pointers and swap as needed
+0080 -> Remove duplicates from sorted array 2
+- use two indices, mover & replacer. compare first and third index. same => move ahead, diff => swap mover with replacer
+
+0088 -> Merge two sorted arrays (bigger one has enough space to maintain both)
+- TRICK: start from rear and merge from rear. if A[m] > B[n] => A[m+n-1]=A[m] else B[n].
+
+0163 -> Missing ranges
+- prev=lower, for each num, see gap btw prev & num based on which take decision how to form str and put entry in result.
+at end, just check similar condition with upper.
+0228 -> Summary ranges
+- loop, start=a[i], while not end and range is continuous (i++)., if start is still a[i] => "" else "->"
+
+0194 -> Transpose file
+- read first line, count elements (say x), make x arrays, read each line, put x elements into corresponding arrays
+
+0217 -> Contains Duplicates
+- sort and check adjacent
+- use hashmap
+- use set in python, and check if len(nums) == len(set(nums))
+0219 -> Contains Duplicates 2
+- use hashmap with (key, val) = (num, index), check when a match occurs if index difference becomes target
+0220 -> Contains Duplicates 3
+- brute-force, for each number check upto k numbers after that if diff between them is lesser than t
+- Use Buckets, divide numbers by t+1 and use as map keys, perform match logic on curr num and adjacent nums in map,
+maintain only last k numbers in map, remove older than k numbers from map
+
+0274 -> H-index
+- sort. loop from end, find idx such that on h=A[idx], len(A[:idx]) = N-h, len(A[idx:]) = h.
+- brute-force. pick each num (say h), count smaller and larger than this num. if lCnt==h and sCnt==N-h => ret biggest h
+0275 -> H-index 2 (array is already sorted)
+- same as H-index
+
+0280 -> Wiggle Sort
+- only even indexed numbers needs to be checked, if arr[i]<arr[i-1]=>swap, if arr[i]<arr[i+1]=>swap. O(n)
+- sort and swap adjacent O(nlgn)
+https://www.geeksforgeeks.org/sort-array-wave-form-2/
+
+0283 -> Move zeroes
+- front and back, A[front]==0 => swap(front, back) back--, else front++
+
+0334 -> Increasing triplet subsequence
+- from start look for num that's smaller than its neighbour. from end look for num that's bigger than its neighbour.
+look for num (from smaller to bigger) that is smaller < num < bigger.
+
+0396 -> Rotate function
+- TRICK: Do F(i+1) - F(i) to get some idea.
+https://leetcode.com/problems/rotate-function/discuss/195613/6-lines-Python-O(N)-time-O(1)-space-with-explanation
+
+0406 -> Queue reconstruction by height
+- TRICK: isolate tallest people, sort by their rank. than from next tallest to shortest, place in answer based on rank.
+
+0485 -> Max consecutive ones
+- loop, if 1 => increase cnt, else => max(max_ones, ones), reset ones. return max(max_ones, ones).
+
+0506 -> Relative Ranks
+- create a list of tuples. (rank, index). sort using rank. loop and use index to place results in result array.
+
+0561 -> Array partition 1
+- sort, loop through array, add every second number. return.
+
+0605 -> Can Place Flower
+- loop through each element. if 0=> check adjacent (or boundary), and mark 1 if can, increase count. if count>n=>return.
+- go L->R, mark adjacents as 'X'. do same from R->L. loop and count '0's. return count>=n.
+
+0611 -> Valid triangle number (a+b>c, b+c>a, c+a>b)
+- brute force. 3 loops, check each possible triplet. check validity condition, increment count.
+- binary search method. sort array. [NOTE: now only a+b>c will suffice where a<=b<=c]
+use binary search to find left limit x=a+b, all element >x will suffice.
+any increase in a or b can be checked simply from k+1 instead of j+1 and doing binary search.
+- Linear scan. same as above, just instead of binary search do linear scan. O(n^2)
+https://leetcode.com/problems/valid-triangle-number/solution/
+
+0628 -> Maximum product of 3 numbers (arr contains +ve and -ve numbers)
+- Brute force. three loops, pick a number each and maintain global max.
+- Sort. return max(arr[0]*arr[1]*arr[-1], arr[-1]*arr[-2]*arr[-3])
+- Scan. loop for min1, min2, max1, max2, max3 numbers. return max(min1*min2*max1, max1*max2*max3)
+
+0775 -> Global and local inversion
+- TRICK: every local inversion is global inversion but not vice versa.
+TRICK: keep running min from end in an array. compare orig[i] to minn[i+2], if its global inversion => return false.
+
+0860 -> Lemonade change
+- 5=>cnt5+1, 10=>cnt10+1,cnt5-1,cnt5<0=>False, 20=> if cnt10=>cnt10-1,cnt5-1; if cnt5=>cnt5-3; cnt5<0=>False. return True
+
+0973 -> K closest points to origin
+- make a list of tuples (dist to origin, point idx). sort tuples using dist. loop through K entries, add points in res.
+
+1014 -> Best sightseeing pair
+- TRICK: as we move ahead, the value of previous hot spot decrease by 1.
+TRICK: Consider only best spot seen till now.
+res=hotspot=0. for each spot, res = max(res, hotspot + spot), hotspot = max(hotspot, spot) - 1.
+
+1133 -> Largest unique number
+- res = [k for k, v in collections.Counter(nums).items() if v == 1] return max(res) if res else -1
+
+1165 -> Single-Row Keyboard
+- generate a dict or array containing (char, idx in keyboard). go through word and calculate steps to reach in keyboard.
+
+1184 -> Distance between bus stops
+- preprocess: if start>end => exchange. extend array by itself (double size).
+loop1 add from (start)TO(destination), loop2 add from (n+start)TO(destination).
+- loop from start to end, count total and count (start)TO(destination).
+return min(distBtwBusStops, total - distBtwBusStops)
+
+1196 -> How many apples can you put into basket?
+- sort. put apples in basket till basket capacity get exceeded.
+
+1200 -> Minimum absolute difference
+- sort array. find global min diff btw any two neighbouring elems. find all adjacent elems that has diff=mindiff.
+
+1213 -> Intersection of three sorted arrays [similar: 0349, 0350, 1002, 1213]
+- return list(set(nums1) & set(nums2) & set(nums3))
+- use three pointers, compare, move smallest.
+
+1299 -> Replace elements with greatest elements on right side
+- greatest=-1, loop from end, temp = arr value, arr value = greatest, greatest = max(greatest, temp)
+
+1304 -> Find N unique integers sum up to zero
+- while n>1, start with num=1 & -1, keep increasing num. at end if n==1 => append 0 as well. return.
+
+1313 -> Decompress RLE List
+- res.extend([nums[i+1]] * nums[i])
+
+1330 -> Reverse subarray to maximize array value
+- OBSERVE: due to absolute diff, only boundary numbers of subarray will matter.
+    OBSERVE: all numbers that are in btw in subarray will have no impact on sum after reversing.
+    so we have to check three cases for each probable subarray as following post suggest
+    https://leetcode.com/problems/reverse-subarray-to-maximize-array-value/discuss/489882/O(n)-Solution-with-explanation
+
+1389 -> Create target array in given index
+- loop through zipped(nums, index), res.insert(idx, num), return res
+
+INCOMPLETE: 0284
+
+------------------------------------------------------------
+Traverse 0 -> N OR N -> 0 Ones
+
+0162 -> Find peak element
+- traverse through array and look for A[i-1]<A[i]>A[i+1]. return i.
+- because we can return any peak element, we can use binary search. while start < end, mid-1 < mid > mid+1=>return mid.
+if not satisfied mid < mid+1 => left=mid+1, else right=mid-1.
+
+------------------------------------------------------------
+Arrays containing numbers 1 to N
+
+0041 -> First missing positive
+- TRICK: for any array whose length is l, the first missing positive must be in range [1,...,l+1],
+        so we only have to care about those elements in this range and remove the rest.
+  eliminate nums < 0 and nums >= n. than swap remaining nums to its correct locations,
+  seek first num thats not at right place.
+
+0287 -> Find the duplicate number
+- TRICK: cycle detection algorithm.
+https://leetcode.com/problems/find-the-duplicate-number/solution/
+- pick each num, if idx!=A[idx] and A[idx]==A[A[idx]] return A[idx],
+else if at right idx=> idx++, else swap(A[idx], A[A[idx]]).
+- use set to store seen elements. if an element already exist than return.
+- sort and compare adjacent.
+
+0448 -> Find all numbers disappeared in an array
+- TRICK: mark numbers that are at the indexes of numbers that are found as -ve.
+so at end all indices that are +ve are missing.
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/discuss/92955/Python-4-lines-with-short-explanation
+- use same array to put in place. for each num, while num is not at correct place,
+place at correct location and update num with replaced num.
+- put in place. create new array and put each element at its correct index. find missing. O(n) & O(n)
+- sort. find missing numbers. O(nlgn) and O(1)
+
+0645 -> Set mismatch
+- XOR ==> https://leetcode.com/problems/set-mismatch/solution/
+- use constant space
+- use extra space and place each number at its index, find num that appears twice. traverse and check missing number
+- create complete arr called real, than return [Counter(nums).most_common(1)[0][0], (set(real)-set(nums)).pop()]
+- sort and check neighbouring
+
+1109 -> Corporate flight booking
+- https://leetcode.com/problems/corporate-flight-bookings/discuss/328871/C%2B%2BJava-with-picture-O(n)
+TRICK: Only update start (by +seats) and end+1 (by -seats) in result. and than add result cumulatively. O(n)
+- Brute Force: go through bookings, go through flight range, add in result array for each flight. O(n^2)
+
+1365 -> How many numbers are smaller than the current number    Similar=[0315]
+- Use python dictionary setdefault method. (num, index where the number was first seen).
+construct res list with index where number was first seen.
+- keep list of tuples (num, orig idx). sort by num. loop through entries and place result at right idx.
+- OBSERVE: Given 1 <= num <= 100. So Use count sort.
+- Sort. each number is bigger than all numbers that come after it.
+- Brute force. check each number with all other numbers.
+
+------------------------------------------------------------
+Prefix Sum Questions
+
+0209 -> minimum size subarray sum
+- use two pointers and maintain min number of elements
+
+0238 -> Product of array except self
+- running multiply from left, running multiply from right. output[i]=left[i-1]*right[i+1]
+
+0303 -> Range sum query - immutable
+- do cumulative addition => cumAdd[i+1]=cumAdd[i]+num[i], sum(i, j) => cumAdd[j]-cumAdd[i-1]
+- brute force: loop from i to j and sum.
+
+0325 -> Maximum size subarray sum equals k
+- https://www.geeksforgeeks.org/longest-sub-array-sum-k/
+- sort (as their are -ve nums as well), prefix sum, two pointers, maintain max_len if equals k and move.
+
+------------------------------------------------------------------------------------------------------------------------
+BackTracking Questions
+
+0017 -> Letter combinations of phone number
+- make a hashmap, backtrack from list taken from hashmap, add combinations to global result
+
+0022 -> Generate Parantheses
+- open available than use, if close < open than use, add to final res when open = close = n
+
+0039 -> Combination Sum
+- backtrack, always start with first num again as a number can be used multiple times in solution, avoid duplicates
+0040 -> Combination Sum 2
+- backtrack, start with next num as a number cannot be used multiple times in solution, avoid duplicates with logic
+
+0046 -> Permutations
+- backtrack, simply if duplicate found in temp-result-list than skip it and continue with next num
+- backtrack, keep increasing begin with every recursive call, start i from begin and swap i and begin at each iteration
+0047 -> Permutations 2 (must be unique)
+- simply check if currList already exist in finalList
+- use counter, and use element only if counter[x]>0, decrement counter once used, increment back in backtrack.
+https://leetcode.com/problems/permutations-ii/discuss/18602/9-line-python-solution-with-1-line-to-handle-duplication-beat-99-of-others-%3A-)
+- backtrack, keep a boolean array to keep track whether an index is already used or not
+- several other ways you need to see
+
+0060 -> Permutation Sequence
+- using n create a list of values and create a list of factorials.
+Subtract from k positions that are not solution using factorials. add correct value in result.
+
+0077 -> Combinations (n, k)
+PYTHON: to append a list to another list with deepcopy = finaList.append(currList[:])
+- backtrack with avoiding duplicates with logic = start from next index in recursive call
+0079 -> Word Search
+- mark visited by changing used char to $, look for first char (backtrack if not what we want).
+call util with remaining str, first char pos, visited. check adjacent chars (check boundaries) (backtrack)
+0093 -> Restore IP Address
+- backtrack with tuple dig=1->2->3. 0<=tuple<=255. empty str after 4 tuple as base case.
+- use fact that only 4 tuple can be there. loops to make (0, i).(i+1, j).(j+1, k).(k+1, len) .check if tuples are valid.
+
+0216 -> Combination Sum 3
+- backtrack with avoiding duplicates with logic
+
+0388 -> Longest absolute file path
+- maxlen=0 and pathlen dictionary (depth, length)
+for each line, count tabs and find name.
+if name is file=> update maxlen using depth from dictionary and name. else update dictionary for next depth.
+- split by '\n', pass in recursion(inputs, cur_len=0, max_len=0, number of tabs in prev level)
+input null=>return. number of tabs in input[0] is <= previous tabs => return. input[0] contain '.' to count length.
+for each input, add in curlen, recurse(input[i+1:], curlen, maxlen, tabs_cnt), remove from curlen.
+
+0526 -> Beautiful arrangement
+- maintain visited, try each number at each position (permutation like).
+recurse(N, pos, visited), if pos>N count++,
+for 1 to N=> check if not already visited and divisible conditions are met than recurse.
+
+0681 -> Next closest time
+- https://www.codertrain.co/next-closest-time
+take digits into an array, use different combinations of digits along with time difference calc in 1440 minutes terms.
+
+0738 -> Monotone increasing digits
+- for first digit, loop from digit to 0. for rest of digits, loop from 9 to prev digit.
+perform backtrack until len of ans matches len of orig num AND ans <= orig.
+- https://leetcode.com/problems/monotone-increasing-digits/solution/
+
+0756 -> Pyramid transition matrix
+- base case: when bottom string becomes of len=1 => return True
+take first and second char.
+for each allowed combination, check if both chars exist.
+    if yes than pick third char from allowed and append in temp
+    if temp is full as we need in current level than make it new bottom and recurse otherwise reduce size of bottom and recurse
+        recurse(temp, allowed, "") OR recurse(bottom, allowed, temp)
+    if solution didn't work than pop from temp and continue with next allowed combination.
+
+0842 -> Split array into fibonacci sequence
+- https://leetcode.com/problems/split-array-into-fibonacci-sequence/discuss/133936/short-and-fast-backtracking-solution
+
+0980 -> Unique paths 3
+- find start, count total walkable spots. util(grid, x, y, total_walkable, curr_walkable, res).
+bound check, visited or obstacle check, destination + walkable covered check. mark visited, move L-R-U-D, mark unvisited
+
+1375 -> Bulb Switcher 3
+- TRICK: maintain index of the rightMost bulb that has been turned on till now.
+for each bulbLoc in given arr, turn on bulb, see if its immediate prev is blue, than set curr as blue,
+check if any immediate next is yellow than turn them to blue, check if rightmost is not yellow than increase allBlue cnt
+
+INCOMPLETE: 0051, 0052
+
+------------------------------------------------------------------------------------------------------------------------
+Binary Search
+
+0034 -> Find first and last location of target in sorted array
+- first=last=binSearch to get occurence, than while first != -1: first=binSearch(0,first-1), update res. same for last.
+- two binary searches with slightly modified condition {if mid<target => i=mid+1, if mid>=target => j=mid} return A[i]
+search1=> look for left end using target number
+search2=> look for right end using target + 1 number
+
+0035 -> Search insert position
+- binary search, return low in case num is not found
+
+0278 -> First bad version
+- check mid, good=>right, bad=>left.
+
+0501 -> Find Mod
+- do inorder traversal and keep counting until node.left.val == node.val. keep max_count
+
+0702 -> Search in a sorted array of unknown size
+- OBSERVE: it is given that each value in array is unique and value will range from -9999 to 9999. So max elem = 20000
+take low=0, high=20000 and do binary search. if interface sends out of range or val doesn't match target =>reduce range.
+
+------------------------------------------------------------------------------------------------------------------------
+Binary Tree Questions
+
+0094 -> Inorder traversal
+- base case. L->C->R
+0100 -> Same Tree
+- any traversal
+
+0101 -> Symmetric Tree
+- null check, value check, fn(left, right), fn(right, left)
+0102 -> Level order traversal
+- queue push. while queue, pop, put in result, push left, push right. keep count=len(queue) to change level.
+0103 -> Zigzag level order traversal
+- maintain level by doing modulo by 2
+- maintain tempList and flag for level, reverse tempList based on flag, flip flag when queue empties
+0104 -> Maximum depth of binary tree
+- check null, return 1 + max(findDepth(left), findDepth(right))
+0105 -> Construct binary tree from preorder and inorder representation
+- use preo[0] as root. look for idx = ino[preo[0]].
+left = recurse(preo, ino[0:idx]), right = recurse(preo, ino[idx+1:]
+0106 -> Construct binary tree from inorder and postorder representation
+- use posto[-1] as root. look for idx = ino[posto[-1]].
+left = recurse(posto, ino[0:idx]), right = recurse(posto, ino[idx+1:])
+0107 -> Level order traversal 2 (reverse order)
+- do regular level order traversal and reverse the list
+0110 -> Balanced binary tree
+- null=>0. left=recurse(left), right=recurse(right). anytime(-1)=>-1. diff(left,right)>1=>-1. return max(left,right)+1
+0111 -> Minimum depth of binary tree
+- null check. return (left or right = 0) ? left+right+1 : 1+min(recurse(left), recurse(right))
+0112 -> Path Sum
+- null check, sum check. add, recurse. anytime(true)=>true.
+0113 -> Path Sum 2 (return list of paths)
+- null check, sum check, append list. add, recurse.
+0116 -> Populating next right pointer for each node (complete binary tree)
+- null check. initialization: curr = root, next = root.left (basically maintain current and next nodes)
+loop until next node is available, left.next=right,
+if same level => right.next = next.left, cur = cur.next; else cur=next, next=cur.left
+0129 -> Sum root to leaf node
+- null check, add to sum. append rootVal to str, traverse left, traverse right.
+0144 -> Pre order traversal
+- CLR
+0145 -> Post order traversal
+- LRC
+
+0199 -> Right side view
+- null check, (currDepth == res.size) => append in res, recurse(right), recurse(left) [note: only 1 elem per level]
+- do level order traversal, first insert right and than left, at each level add 0th element to result
+
+0226 -> Invert binary tree
+- null check. left=recurse(right), right=recurse(left) return root.
+0236 -> Lowest common ancestor
+- null=>False. l=recurse(left),r=recurse(right). if curr= p or q => m=True. if m+l+p>=2=>ans=m. return (l or r or m)
+
+0257 -> Binary tree paths
+- leaf check=> append in res. add left.val recurse(left) remove add left.val, same as left for right.
+
+0404 -> Sum of left leaves
+- pass childSide string as "left" or "right" and if leaf node and left leave than return root.val.  summ += recurse()
+
+0508 -> Most frequent subtree sum
+- post order traversal, put additions into global res dict. return max occuring nums from res dict.
+0513 -> Find bottom left tree value
+- level order traversal from right to left. return last node.
+- track max_height and last_val. at end of traversal return last_val.
+0515 -> Find largest value in each tree row
+- level order traversal. track max val at each row and append in result.
+0543 -> Diameter of binary tree
+- root check, return 0. l=recurse(left), r=recurse(right), globalmax=(gm,1+l+r), return max(1+l,1+r). return gm-1
+
+0563 -> Binary tree tilt
+- leaf check, return 0. l=recurse(left), r=recurse(right). return abs(l-r)
+
+0606 -> Constructing string from binary tree
+- do preorder traversal and place val in string as '(' val, recurse(left), recurse(right), ')'.
+0617 -> Merge two binary trees
+- t1=null=>return t2, t2=null=>return t1. t1.val+=t2.val, t1.left=recurse(t1.left,t2.left), right, return t1.
+0623 -> Add one row to tree
+- look if curr_depth==d => root.left=newNode, newNode.l.l=root.l, same for right.  else recurse(l, d+1), recurse(r, d+1)
+https://leetcode.com/problems/add-one-row-to-tree/solution/
+0637 -> Average of levels in binary tree
+- level order traversal
+
+0662 -> Maximum width of binary tree
+- Level order traversal. in queue keep entries as (node, depth, pos).
+PYTHON: for node, depth, pos in queue:
+if node: append(left, depth+1, 2*pos), append(right, depth+1, 2*pos+1), than check if depth changed => left = pos.
+ans = max(last appended node's pos - left [a.k.a in this depth first node's pos] + 1, ans)
+0663 -> Equal tree partition
+OBSERVE: to have two trees of equal value, the value needs to be = total val of original tree / 2.
+- create set of sum of values of all subtrees. set.add(root.val + recurse(root.left, set) + recurse(root.right, set))
+http://cqbbshuashua.blogspot.com/2018/08/663-equal-tree-partition.html
+
+0742 -> Closest leaf in a binary tree
+- https://www.geeksforgeeks.org/find-closest-leaf-binary-tree/
+
+0863 -> All nodes distance K in binary tree
+TRICK: preorder traversal and mark parent for each node. dfs(node, parent) => node.parent = parent, dfs(l, root), dfs(r, root)
+- level order traversal from target node. increase distance every time and insert left, right, parent in queue.
+if distance of node in queue == k => return all nodes that are in queue as answer as they all are at k distance.
+maintain seen.
+https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/solution/
+VIDEO: https://www.youtube.com/watch?v=nPtARJ2cYrg
+
+0865 -> Smallest subtree with deepest nodes
+- https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/solution/
+
+0965 -> Univalued binary tree
+- any traversal. util(root, univalue).
+
+1302 -> Deepest leaves sum
+- level order traversal, sum will need to reset after each level until last level sum is counted.
+https://leetcode.com/problems/deepest-leaves-sum/discuss/463248/Java-BFS-Clean-code-O(N)
+1315 -> Sum of nodes with even valued grand parents
+- send parent and grandparent is odd or even at below level, and check if gp is even than add root's value to global sum
+- at curr level, if val is even, add grand child's values into global sum.
+
+1367 -> Linked list in binary tree
+- Base case: if tree is finished=> if list is also finished=>true. if list is finished=>true (irrespective of tree)
+if root and tree doesn't match => start list from beginning again and recurse tree left and right
+else => move to next node of list and move to left and right of tree.
+1373 -> Maximum sum BST in a binary tree
+- https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/discuss/531800/Python-Easy-traversal-with-explanation
+1379 -> Find a Corresponding Node of a Binary Tree in a Clone of That Tree
+- null check. if target = orig => return clone, recurse(left), recurse(right) => success=>return clone, return None.
+
+INCOMPLETE: 0114, 0117
+
+------------------------------------------------------------------------------------------------------------------------
+Binary Search Tree Questions
+
+0074 -> Search a 2D matrix
+- use l=0, r=m*n-1. do binary search. row = mid/m, col = mid%m.
+0098 -> Validate Binary Search Tree
+- check null. check min < val < max. fn(left, minrange, maxrange). fn(right, minrange, maxrange)
+0099 -> Recover binary search tree
+- inorder traversal. find self.first and self.second that are out of place (>=root.val). use self.prev to hold parent.
+https://leetcode.com/problems/recover-binary-search-tree/discuss/32535/No-Fancy-Algorithm-just-Simple-and-Powerful-In-Order-Traversal
+
+0108 -> Convert sorted array to BST
+- pick mid element as root, left = recurse(arr,start,mid-1), right = recurse(arr,mid+1,end)
+0109 -> Convert sorted LinkedList to BST
+- null check. find mid using slow-fast, prevToSlow.next=None. use mid as root. l=recurse(head), r=recurse(mid.next)
+
+0173 -> Binary search tree iterator
+- use stack.  O(h) space, O(1) time
+init => create stack. pushall(root).    hasnext => is stack.empty
+pushall => while node: push in stack, move to left child  (basically push all left children in stack)
+next => pop from stack, pushall(poppedNode.right), return poppedNode.val
+
+0230 -> Kth smallest element
+- Inorder traversal. check if count of nodes seen == k.
+0235 -> Lowest common ancestor
+- null check. if both p and q are smaller than root.val => look in left subtree. elif vice versa. else return root(LCA).
+0240 -> Search a 2D matrix 2
+- start from top right corner. loop until col>=0 or row<len, if target found=>return,
+if target is smaller than col--, if target is bigger than row++.    => O(m+n)
+
+0450 -> Delete node from BST
+- None check, if node to be deleted is found,
+    case1: leaf node => return None
+    case2: single child => return child
+    case3: two child => find largest in left subtree, r.l=delete(largest in left subtree), root.val=largest, return root.
+ else: r.l=delete(l, key), r.r=delete(r, key), return root.
+
+0536 -> Convert BST to Greater tree
+- postorder traversal. recurse(right, summ), temp=root.val, root.val+=summ, summ+=temp, recurse(left, summ), ret summ.
+
+0653 -> Two sum 4 - input is BST
+- inorder traversal. than two sum with two pointers.
+0669 -> Trim a BST
+- null check.
+if root.val<L => root=recurse(r), elif root.val>R => root=recurse(l), else r.l=recurse(l), r.r=recurse(r). return root.
+
+0701 -> Insert into binary search tree
+- root null => return TreeNode(val), if root.val>val => root.left=recurse(left,val) else=> root.right=recurse(right,val)
+
+0776 -> Split BST (CRAM THIS)
+- https://www.youtube.com/watch?v=ADun2n_ueZQ
+- http://cqbbshuashua.blogspot.com/2018/07/776-split-bst.html
+
+1038 -> Binary search tree to greater sum tree
+- util(root, prevSum) root null => return prevSum,
+rsum=util(right, prevSum), root.val+=rsum, lsum=util(left, prevSum), return lsum.
+
+INCOMPLETE: 0095
+
+------------------------------------------------------------------------------------------------------------------------
+N-ary Tree Questions
+
+0429 -> Level order traversal
+- level order. put all children in queue. at every queue iteration count len(queue) to figure out level completion.
+0559 -> Maximum depth of an N-ary tree
+- leaf check, return 0. maxHere=0, for each node maxHere=max(maxHere, recurse(node)). return maxHere+1.
+0589 -> N-ary tree preorder traversal
+- loop through children
+0590 -> N-ary tree postorder traversal
+- loop through children
+
+------------------------------------------------------------------------------------------------------------------------
+Bit Manipulation Questions
+
+0078 -> Subset or PowerSet
+- total 2^n entries will be there. loop through 0 to 2^n and treat each bit of i as a number from the list.
+
+0136 -> Single Number
+- XOR all nums
+
+0190 -> Reverse bits
+- i<=31, m = m | (n & 1), m = m << 1, n = n >> 1
+- n=31, i<=n, if num & (1<<i) => res | (1<<(n-i)) else => res & (0<<(n-i))
+0191 -> Number of 1 bits
+- while n, if n&1 => count++, n = n >> 1
+- while n, count++, n & (n-1)     [Trick: ANDing n with n-1 makes only LSB 0, all other bits remain same]
+
+0201 -> Bitwise AND of numbers range
+- you need to shift least significant bits that are different between m and n. until you get m = n.
+0231 -> Power of Two
+- a number is power of two only if it has only one set bit. so n & (n-1) should be 0.
+
+0260 -> Single Number 3
+- xor all nums. loop all nums and xor each num with res. gives you two nums that are unique.
+
+0405 -> Convert a number to hex
+- for each tuple(4bit), take least significant 4 bits of number and convert it to hex digit. right shift by 4.
+
+1016 -> Binary string with substring representing 1 to N
+- loop from 1 to N, figure out binary representation in string format, look for binary representation in given string.
+1022 -> Sum of root to leaf binary numbers
+- leaf => left shift and OR root.val, if left => recurse(left), if right => recurse(right).
+
+1310 -> XOR queries of a subarray
+- xor cumulatively from LtoR. return A[j]^A[i-1] (this will give xor from i to j inclusive)
+- loop through queries, pick each item and xor
+1318 -> Min flips required to make a or b equals c
+-
+1342 -> Number of steps to reduce a number to zero
+- while num, num & 1, steps+=2, else steps+=1, return steps-1.
+
+1356 -> Sort integers by number of 1 bits
+- create list of empty lists for bits [[] for i in range(32)]. sort array. for each num count bits and append in list.
+
+INCOMPLETE: 0089, 0090, 0137
+
+------------------------------------------------------------------------------------------------------------------------
+Cache
+
+0146 -> LRU Cache
+- use hashmap with doubly linkedList. create node class (key, val, next, prev).
+create LRU cache class (capacity, dict, head, tail). link head to tail and tail to head.
+get=> if present in dict, than remove from doubly linkedList and add it back on tail.
+put=> if present in dict than remove from dict and doubly linkedList else create new node. than add in dict and at tail
+of doubly linkedList. also if capacity is exceeded than remove head from linkedList and remove from map.
+
+------------------------------------------------------------------------------------------------------------------------
+Dynamic Programming
+
+0121 -> Best time to buy and sell stocks (one transactions)
+- loop through array, buyPrice>curr=>buy=curr, else profit=curr-buy, profit=max(max_prof, profit)
+0122 -> Best time to buy and sell stocks 2 (multiple transactions)
+- start from front and add all positive differences between i and i-1
+
+0139 -> Word Break
+- form word through loop which is present in dict. than recurse and form next word. In case string gets over and word
+isn't found in dict than backtrack and add more chars to previous word.
+
+0256 -> Paint House
+- cost of painting house i with color R is = cost[i][R] + min(cost[i-1][G], cost[i-1][B]). As prev house need diff color
+same with other two possibilities of painting house i with color G or B. Thus, cost will increase cumulatively.
+At the end, return minimum cost of painting last house with any of R, G, B color.
+https://medium.com/@chiasine/leetcode-paint-house-65a3d3e8ff19
+
+0509 -> Fibonacci number
+- Go through this for DP. https://leetcode.com/problems/fibonacci-number/solution/
+- def fib(n): if n==0 or n==1: return 1, return fib(n-1) + fib(n-2)
+
+AMAZON INCOMPLETE: 0494, 0746, 0801
+INCOMPLETE: 0005, 0053, (0062, 0063, 0064), 0070, 0091, 0096, 0120, 0131, 0139, 0198, 0213, 0221, 0264, 0279, 0300,
+0304, 0308, 0309, 0322, 0514, 0516, 0518, 0552, 0629, 0639, 0646, 0650, 0712, 0714, 0740, 0980, 1048, 1062, 1326
+
+------------------------------------------------------------------------------------------------------------------------
+Graph Questions
+
+0785 -> Is graph bipartite
+- TRICK: color the nodes with 0=>no color, 1=>blue, -1=>red. loop through all nodes (BFS), pick a node and perform (DFS)
+and check if any of connected nodes have same color as this node's =>return False.
+mark opposite color for each level (DFS).
+
+1311 -> Get watched videos by your friends
+- graph traversal using recursion until level becomes 0. use set to hold result and visited IDs.
+sort dictionary by number of views.
+
+1376 -> Time needed to inform all employees
+- make a map (manager, list of subordinates) for faster processing. call util.
+keep orig time for head to inform its subs. find subs for current head.
+loop through subs, time = max(time, orig_time + recurse(sub)). return time
+1377 -> Frog positions after T seconds
+- https://leetcode.com/problems/frog-position-after-t-seconds/discuss/532571/JavaC%2B%2BPython-DFS (see python soln)
+
+INCOMPLETE: 0127, 0133, 0207, 0210, 0310, 0332
+
+------------------------------------------------------------------------------------------------------------------------
+HashMap Questions
+
+PYTHON: Counter -> https://pymotw.com/2/collections/counter.html
+
+0030 -> Substrings with concatenation of all words
+OBSERVE: all given words are of same length
+- keep two maps, count {word: num of occurences} and seen {word: num of occurences}.
+loop through string, using two pointers. one traverses string char by char. second traverses word by word.
+if ever => word from string doesn't match any given words or count of word in seen > count of word in count => break.
+see comment for python implementation
+https://leetcode.com/problems/substring-with-concatenation-of-all-words/discuss/13658/Easy-Two-Map-Solution-(C%2B%2BJava)
+- Permutation. Do permutation of each word using backtracking. At end, check constructed substr in given str.
+
+0049 -> Group Anagrams
+PYTHON: Counter and list are unhashables. meaning they can't be used as key in hashmap as it is.
+- go through list and count sort each str, put in hashmap (sorted -> list of orig)
+- assign prime number to each char, do multiplication, count occurrences of each num, append corresponding indices
+
+0242 -> Valid Anagram
+- Counter(str1) == Counter(str2)
+- Hashmap. (char, count). add for one string, subtract for other string. at end map should have all 0 entry.
+- sort. compare strings.
+- assign prime val to each char and multiply. compare result.
+0249 -> Group shifted strings
+- TRICK: form difference string. acd => 21, mop => 21, dgh => 31 etc. and map {diff_str: list of orig str}
+
+0349 -> Intersection of two arrays [similar: 0350, 1002, 1213]
+- return list(set(nums1) & set(nums2))
+
+0350 -> Intersection of two arrays 2 [similar: 0349, 1002, 1213]
+- return list((collections.Counter(nums1) & collections.Counter(nums2)).elements())
+- map (array elem, cnt). if cnt of each elem = len(arr) => append in res.
+0389 -> Find the difference [similar: 1048]
+- return (Counter(t) - Counter(s)).popitem()[0]
+
+0535 -> Encode decode tinyurl
+- generate random number and assign to url. keep two maps (num, url), (url, num).
+
+0554 -> Brick wall
+- cut from most common edge among all rows of brick. for this maintain hashmap that contains (cumulative pos, count)
+return len(wall) - max(hashmap.values())
+
+0609 -> Find duplicate file in system
+- go through each path, split by space, go through each file, split by '('. (file content, list of filepaths).
+loop through map, append in result any val that has len(val)>1
+
+0760 -> Find anagram mappings
+- create map out of B (val, index in B). lookup map using A, and create response.
+
+0890 -> Find and replace patterns
+PYTHON: filter function -> https://www.programiz.com/python-programming/methods/built-in/filter
+- Two Map. go through each word, create dict, (word char, target char) and (target char, word char)
+if exist and chars are diff than skip this word else append in result
+https://leetcode.com/problems/find-and-replace-pattern/solution/
+- go over target using O(n^2) and create a list of next indices where the char exists. Ex. abb => [-1, 2, -1]
+than go through each char of each word, and check if word[target[idx]] != curr_char. skip.
+
+1002 -> Find common characters [similar: 0349, 0350, 1213]
+- OBSERVE: result chs is already subset of first string.
+Using counter, Lookout for chars that are in first str and also in all subsequent strings using & operator.
+PYTHON: list(counter.elements()) returns list of elements that are there in counter.
+- map (ch, list of appearances with int cnt).
+1122 -> Relative sort array
+OBSERVE: number is in range 0 to 1000
+- make hashmap of A {val: idx}. return sorted(A, lambda a: k.get(a, 1000+a)).
+TRICK: any number that is found from map => use it as is. Or add 1000 to the num so that it remains at end of array.
+- counter(arr1). loop arr2, look for item in counter and construct result list, delete from counter.
+sort(counter.keys()), loop through key, construct result list. return res.
+
+1282 -> Group the people given group size they belong to
+- use hashmap to build lists of index using group as key. break lists as needed.
+1296 -> Divide an array into K consecutive elements
+PYTHON: to check all vals in map is same = (len(set(hashmap.values())) == 1)
+- hashmap with key=0 to k-1, val=cnt of num%k. reduce nums in list to fit in 0 to k-1. return if all vals in map is same
+
+1366 -> Rank team by votes
+- hashmap (team, score). max_score = number of teams. 1st->max_score, 2nd->max-1 and so on.
+loop through votes and than teams and increase score in hashmap. lastly sort using values and return keys.
+
+1370 -> Increasing decreasing string
+- use counter. while counter is not empty, sort counter, append res, delete key if val 0. do same in reverse.
+PYTHON: sorted(counter) gives list of keys in sorted order.
+
+1394 -> Find lucky integer in an array
+- use counter. for each pair, if k==v: res = max(res, v). return res
+
+------------------------------------------------------------------------------------------------------------------------
+Heap Questions
+
+0347 -> Top K frequent elements
+- https://leetcode.com/problems/top-k-frequent-elements/solution/
+- counter, mostCommon(k), return list from tuple.
+0692 -> Top K frequent words
+- https://leetcode.com/problems/top-k-frequent-words/solution/
+- counter, mostCommon(), create map (freq, list of words), loop through map -> sort list of words, return res[:k].
+
+0501 -> IPO
+- make list of tuples (profit, capital). sort this list by capital. loop until projects are left.
+go through list and insert -ve-profit in minHeap which has capital < W. (in this way max Profit will be at heap's root)
+than pop and add this profit into W and continue until projects are left.
+
+INCOMPLETE: 313
+
+------------------------------------------------------------------------------------------------------------------------
+Logic Question
+0004 -> Median of two sorted arrays
+- https://youtu.be/LPFhl65R7ww
+0006 -> Zigzag conversion
+- breakdown traversals based on directions, manage indices
+
+0011 -> Container with most water
+- two pointers (front, back), keep bigger number, count horizontal with smaller vertical
+
+0031 -> Next Permutation
+- from end of num, find index k such that A[k] < A[k+1], if no such k found than reverse entire num and return
+than, from end of num to k+1, find first index l such that A[k] < A[l], swap A[l] with A[k], reverse nums from A[k+1:]
+https://leetcode.com/problems/next-permutation/solution/
+0038 -> Count and Say
+- bottom up, use initial str and apply same logic on it, keep counting if same char occurring, append in result if diff
+- regex solution
+- groupby package solution
+
+0055 -> Jump Game
+- keep track of reach, loop thorough each index only if index is <n and within reach till now.
+if reach can be extended with current index than extend reach. check if index reached to end of array.
+0056 -> Merge Intervals
+- sort intervals by start time, if previous intervals end time is > curr's start time than merge them.
+
+0134 -> Gas Station
+- find first idx where gas<cost. fill tank and travel to next stop. loop until start stop is visited. anytime neg=>-1.
+
+0152 -> Maximum product subarray
+TRICK: max product can be either (1) elem itself (2) extreme min * -ve elem (3) extreme max * +ve elem.
+https://leetcode.com/problems/maximum-product-subarray/discuss/48230/Possibly-simplest-solution-with-O(n)-time-complexity
+
+0169 -> Majority Element
+- count=0. take first element as majority element, if next is same=> +1, diff=> -1. if count=0 => take curr as maj elem.
+
+0223 -> Rectangle Area
+- find how to use coordinates to handle all kind of cases two rectangles can create for overlapping
+0229 -> Majority element 2
+- same as majority element but use 2 counters and more conditions.
+- Hashmap. (num, count).
+
+0299 -> Bulls and Cows
+- https://leetcode.com/problems/bulls-and-cows/discuss/74616/3-lines-in-Python
+- Hashmap(number). (dig, count). loop zip(guess,num) if dig1==dig2 bull++ map--, elif dig1 in map cow++ map--.
+
+0324 -> Wiggle Sort
+- sort. than from 1 to n with step=2, swap in pairs.
+
+0517 -> Super washing machines
+- find sum of load, num of machines and avg load.
+https://leetcode.com/problems/super-washing-machines/discuss/99185/Super-Short-and-Easy-Java-O(n)-Solution
+
+0556 -> Next greater element 3
+- https://leetcode.com/problems/next-greater-element-iii/discuss/101824/Simple-Java-solution-(4ms)-with-explanation.
+
+0632 -> Smallest range covering of k lists
+- use k pointers to k lists. take k numbers, find diff between min and max from these numbers. maintain global diff.
+move min number pointer to next element if available. if not than move pointer of next min element. until all list end.
+https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/solution/
+0649 -> Dota2 senate
+- optimize by checking total D and R. if D=R => first turn taking player wins. if abs(D-R)>1 => more frequent wins.
+make Dlist and Rlist containing indexes. use two ptrs to lists and move. the list that first reaches end loses.
+
+INCOMPLETE: 0057, 0152
+
+------------------------------------------------------------------------------------------------------------------------
+Linked List Questions
+
+0002 -> Add two numbers (given in reverse order)
+- go through lists in a loop, pick numbers, add, maintain sum & carry
+0019 -> Remove Nth node from end of the list
+- use slow and fast pointers, slow starts after fast moves till N nodes
+0021 -> Merge two sorted LinkedLists
+- use head to dummy node, go through lists and merge to dummy node, merge any remaining non-empty, return head.next
+0023 -> Merge k sorted lists
+- merge with divide & conquer, merge k/2 lists in pair of 2, similarly keep merging k/4, k/8, k/16.  O(nlgk)
+- merge 2 sorted lists, k times. O(kn)
+- pick k elems, compare, put smallest in final, move only that list O(kn)
+--- use priority queue for comparison O(nlgk)
+- take all elements of all lists in arr, sort arr, recreate list O(nlgn)
+0024 -> Swap Nodes in Pairs
+- pointer manipulations
+0025 -> Reverse nodes in k groups
+- go through list, make a temp list of k nodes, reverse, append in finalList, repeat.
+
+0061 -> Rotate List
+- pointer manipulations (keep last and secondLast)
+0082 -> Remove duplicates from sorted list 2 (keep nodes that come only once)
+- pointer manipulations
+0083 -> Remove duplicates from sorted list
+- pointer manipulations
+0086 -> Partition List (maintain relative order)
+- keep two dummy nodes and merge at the end
+0092 -> Reverse LinkedList 2 (from m to n)
+- reach till m-1, prev = m-1, start reversing until null or n
+
+0141 -> LinkedList Cycle
+- use two pointers fast and slow. if they ever meet, there's cycle.
+0142 -> LinkedList Cycle 2
+- find cycle. count nodes in cycle. ptr1=head, ptr2=head+k. than move ptr1 and ptr2 together, they will meet at cycle.
+0143 -> Reorder List
+- reach middle. reverse list from mid to end. merge these two lists picking one from each.
+0147 -> Insertion sort list
+- pointer manipulation. pick node and than from head look for correct location to place it.
+0148 -> Sort list
+- merge sort. divide list in 2 halves. sort individual halves recursively. merge two halves and return.
+
+0160 -> Intersection of two linkedLists
+- find length of both lists. traverse l2-l1 nodes in bigger list. than traverse both lists and look for common element.
+- keep moving both pointers together. when any one of them reaches end, point it to head of the other list.
+eventually both pointers will reach at common node together. or both will be null together.
+
+0203 -> Remove LinkedList elements
+- dummy node can be used with prev and curr pointers to accomplish this without caring for value at begin, mid or end.
+0206 -> Reverse LinkedList
+- pointer manipulations
+0234 -> Palindrome LinkedList
+- slow,fast to reach mid. head2=slow.next. reverse head2 to end. loop through and compare head and head2.
+0237 -> Delete node from LinkedList (given only ptr to node which needs to be deleted)
+- ptr.val=ptr.next.val, ptr.next=ptr.next.next   (Note: its given that tail node won't be asked to delete)
+
+0328 -> Odd Even LinkedList
+- while even and even.next, odd.next=even.next, odd=odd.next, even.next=odd.next, even=even.next. at end connect lists.
+
+0708 -> Insert in circular sorted linked list
+- case1: empty list, case2: insert at head (find tail), case3: insert in middle or end (sorted). Pointer manipulations.
+
+0817 -> Linked list components
+- https://leetcode.com/problems/linked-list-components/solution/  (better way of coding)
+- skip all elements that are not in array from front of the list. keep element_cnt that are in are in curr component.
+loop through list, if curr.next.val not in arr, increase cnt if there is element in component, reset element_cnt=0.
+else increase element_cnt as this element is there in current component.
+
+0876 -> Middle of a linked list
+- fast and slow pointers.
+
+1171 -> Remove zero sum consecutive nodes from linked list
+- Trick: cumulative sum from front to end, whenever previously computed number is seen again, remove all nodes btw them.
+https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/discuss/366319/JavaC%2B%2BPython-Greedily-Skip-with-HashMap
+
+1265 -> Print immutable linked list in reverse
+- recursion. O(n) space
+- stack. O(n) space
+- iteratively. count len. than for 0 to len, reach nth node from head and print.
+1290 -> Convert binary number given in linked list to integer
+- go through list, left shift res by 1, OR with current node value.
+
+INCOMPLETE: 0023, 0025, 0138
+
+------------------------------------------------------------------------------------------------------------------------
+Matrix Questions
+
+0036 -> Valid Sudoku
+PYTHON: counter can't take 2D array. you need to do it row by row.
+- TRICK: hashset, traverse through matrix, encode numbers in str as (num)row, col(num), col/3(num)row/3 and insert in set
+- Counter, go through each row and each column, and modify using math indices for checking cubes
+row = 3*(i/3) + j/3, col = 3*(i%3) + j%3
+
+0048 -> Rotate Image (90 degrees - Inplace)
+- clockwise => reverse up-down, swap with diagonal symmetry, anticlockwise => reverse left-right, swap diagonally
+
+0054 -> Spiral Matrix
+- use four indices rowBegin, rowEnd, colBegin, colEnd. Use four for loops within a while loop.
+After each row and col traversal move relevant index as needed.
+0059 -> Spiral Matrix 2
+- same as spiral matrix
+
+0073 -> Set matrix zeroes
+- use bitwise & operator to figure out rows and columns that become zero. use map to hold this data. zero these row-col.
+- use row zero and column zero to contain state of the respective row and column.
+
+0130 -> Surrounded Regions
+- first check boundaries. if any cell is 0 than make it 1 and recursively check its adjacent cells and make them 1 if 0.
+than traverse board and make any remaining 0s as X. than traverse board and make all 1s back to 0.
+
+0200 -> Number of Islands [similar: 0463, 0695, 0694, 1254, 0286]
+- loop, when found land, recurse -> boundary?, visited?, water?, mark visited, recurse in all four dir, return.
+
+0286 -> Walls and gates [similar: 0463, 0200, 0695, 1254]
+- visited arr with entry as tuple (bool, gateRow, gateCol). loop, when found gate, traverseRoom.
+ traverseRoom(grid, gateRow, gateCol, row, col, dist, visited)
+ recurse -> boundary? => return, obstacle? => return, another gate? => return, visited from same gate? => return
+ update grid by min distance till now, mark visited by (true, gateRow, gateCol)
+ recurse in all four dir with increased distance.
+0289 -> Game of Life
+- traverse. count live neighbours of cell. based on count decide if cell has to be live or dead.
+
+0463 -> Island Perimeter [similar: 0695, 0200, 0694, 1254, 0286]
+- find first one. than recursively within boundary mark visited and check perimiter (4 - num of neighbours that are 1)
+
+0519 -> Random flip matrix
+- use random function to pick row and col, check if not already zero than flip. reset class variables on reset call.
+
+0694 -> Number of distinct islands [similar: 0463, 0200, 0695, 1254, 0286]
+TRICK: treat first land entry coordinate as base and figure out topography relative to this base.
+TRICK: maintain set of topographies.
+- loop, when found land (mark this as base),
+recurse -> boundary?, visited?, water?, mark visited, append in topography, recurse in all four dir, return
+after returning, maintain set of coordinates in which you will append current island's topography
+https://www.geeksforgeeks.org/find-the-number-of-distinct-islands-in-a-2d-matrix/
+0695 -> Max area of island [similar: 0463, 0200, 0694, 1254]
+- loop, when found land, recurse -> boundary?, visited?, water?, mark visited, recurse in all four dir, return area.
+
+0733 -> Flood fill
+- dfs with boundary check, visited check, color check.
+
+0807 -> Max increase to keep city skyline
+- find max in each row and max in each column. for each coordinate, sum += max(row[i],col[j]) - A[i][j]
+https://leetcode.com/problems/max-increase-to-keep-city-skyline/solution/
+PYTHON: if grid = [[], [], []] than *grid = [] [] [].
+PYTHON: zip(*grid) gives you tuple of ith element of each list.
+PYTHON: to traverse a matrix,
+for r, row in enumerate(grid):
+    for c, val in enumerate(row):
+        print(val)
+PYTHON: column(grid, i) => return [row[i] for row in grid]
+
+0883 -> Projection area of 3D shapes
+- for top view, any element that is 0 will not cast shadow. So cnt all non-zero elements.
+for left-right side view, max of row will cast shadow. so cnt += sum( max of each row )
+for up-down side view, max of columns will cast shadow. so cnt += sum( max of each column )
+PYTHON: def column(grid, i)  => return [row[i] for row in grid]
+
+1254 -> Number of closed islands [similar: 0463, 0200, 0694, 0695, 0286]
+TRICK: when marking visited, mark with island counter. if boundary is hit don't increase island counter.
+- loop, when found land, check visitIsland, if island => increase islandCounter.
+ recurse -> boundary? => return false, not land? => (water? OR same island?) => return true else false.
+ mark visited by island counter, recurse in all four dir, keep track of result from all dir, return AND of all result.
+
+1329 -> Sort the matrix diagonally
+- given nxn matrix, keep a diagonal dictionary, There exist -n-1 to n-1 keys (int, list of elements).
+traverse matrix and put each element using key diag_dict[i-j].append(matrix[i][j])
+than sort each entry in diagonal dictionary
+form matrix again by popping entries from diagonal dictionary.
+
+1351 -> Count negative numbers in a sorted 2D array
+- start from bottom left corner. while in limit, if -ve=> count += n-c, r--. else c++.
+1380 -> Lucky numbers in a matrix
+PYTHON: to getColumn(i) => [row[i] for row in matrix]
+PYTHON: intersection of two lists intersection(lst1, lst2) => [val for val in lst1 if val in lst2]
+- create two lists, one for min num in each row, one for max in each col, return intersection of these two lists.
+
+------------------------------------------------------------------------------------------------------------------------
+Number Questions
+
+0007 -> Reverse Integer
+- use // and % logic
+0009 -> Palindrome Number
+- convert to string, reverse string and check (PROB: unnecessary string conversion)
+- reverse integer and check (PROB: if reversed int overflows)
+- reverse half integer and compare as return (orig == reversed) or (orig == reverse/10) ==> for even and odd.
+
+0012 -> Integer to Roman
+- use hashmap for converters, use //, %, * (for tens), logic
+0013 -> Roman to Integer
+- go through two digits together in a loop
+
+0029 -> Divide two integers
+- subtract divisor from dividend until dividend becomes zero, keep count of quotient
+- Bit manipulation: left shift divisor by 1 until it becomes > dividend, the shifts are part of quotient. then,
+there will be some part of dividend left from which divisor has to be subtracted. The number of times divisor can be
+subtracted is also part of quotient.
+
+0043 -> Multiply Strings
+- TRICK: if len(num1)->m and len(num2)->n ==> len(res)->m+n.  mul(i*j) digits will be placed at res[i+j, i+j+1] places.
+https://leetcode.com/problems/multiply-strings/discuss/17605/Easiest-JAVA-Solution-with-Graph-Explanation
+
+0066 -> Plus One
+- start from end of array towards start, maintain sum and carry
+0067 -> Add Binary
+- make both strings equal by appending zeros, start from end, maintain sum and carry
+
+0118 -> Pascal's Triangle
+- any row can be constructed by offset sum of previous row: res += [map(lambda x, y: x+y, res[-1] + [0], [0] + res[-1])]
+  1 3 3 1 0
++ 0 1 3 3 1
+= 1 4 6 4 1
+- create a res list with proper number of 1s for requested number of rows, than use previous row to calculate next row.
+insert the calculated result in middle.
+0119 -> Pascal's Triangle 2 (return kth row only)
+- row=[1], for k, row = [x + y for x, y in zip([0]+row, row+[0])]
+
+0165 -> Compare version numbers
+- split versions by '.'. make both lists equal size by appending 0s. pick each element, strip of leading 0s. compare.
+0168 -> Excel sheet column title
+- modulo by 26 and divide by 26
+0171 -> Excel sheet column number
+- take char and change to number (using dict), than multiply res by 26 and add curr num.
+0179 -> Largest Number
+- convert int to str. sort. use digits of larger nums in two pair digs = x+y if x+y > y+x else y+x.
+
+0202 -> Happy Number
+- you can use visited hashmap with number update logic and num == 1 check.
+- this problem can also be solved by slow and fast logic of floyd's cycle algorithm.
+0204 -> Count Primes
+- Trial Division: go through each number and check if number is prime using division by elements upto sqrt(num)
+- Sieve of erastothenes: assume all are prime, than strike off multiples of numbers that are actually prime
+- https://www.youtube.com/watch?v=eKp56OLhoQs
+real all hints ==> https://leetcode.com/problems/count-primes/
+
+0258 -> Add digits
+- %10 and //10 technique
+0263 -> Ugly number
+- divide by 2 than 3 and than 5 (say p). if num % p != 0 => use next p. at the end if num != 1 => return false.
+0268 -> Missing number
+- use temp and put each number to its right index. check which num doesn't match its index. that's missing num.
+0292 -> Nim Game
+- anyone who gets multiple of 4 loses the game. return (n%4 != 0)
+
+0319 -> Bulb switcher
+- OBSERVE: bulb can only be ON if flipped odd number of times, odd flips only happen if bulb is at pos n = perfect square
+https://leetcode.com/problems/bulb-switcher/discuss/77104/Math-solution..
+0326 -> Power of 3
+- if(n>1)  while(n%3==0) n/=3.  return n==1.
+
+0399 -> Evaluate division
+- create a map (variable, relation to other var as tuple (relational val, var))
+go through query use LHS as var1 and RHS as list (val, var2). look for var2 in varMap and try to deduce var1.
+
+0483 -> Smallest good base
+- Trick: max n can be of 62 bits. that means n can be represented as following in terms of bits of base b.
+n = 1 + 2*b + 3*b + 4*b + .... + d*b ( where 2<=b<=62 and 1<=d<=pow(n, 1/d)+1 )
+https://leetcode.com/problems/smallest-good-base/discuss/96590/3ms-AC-C%2B%2B-long-long-int-%2B-binary-search
+
+0504 -> Base 7
+- care about sign, do while, prepend modulo by 7 in res, divide num by 7, break if 0. return in str format.
+0507 -> Perfect number
+- loop through sqrt(n), find all factors of the number. add the factors.
+
+0523 -> Continuos subarray sum
+- https://leetcode.com/problems/continuous-subarray-sum/discuss/99499/Java-O(n)-time-O(k)-space (see comment #1)
+- brute force
+
+0564 -> Find closest palindrome
+- https://leetcode.com/problems/find-the-closest-palindrome/solution/
+0573 -> Squirrel simulation
+- distance = squirrel to first nut + first nut to tree + 2 * (all other nuts to tree)
+dist(x1,y1,x2,y2) return abs(x1-x2)+abs(y1-y2)
+
+0633 -> Sum of square numbers
+- for firstSq=floor(sqrt(num)) to 0 in step of 1, secondSq = num - firstSq, return sqrt(secondSq).is_integer()
+
+0799 -> Champagne tower
+- https://leetcode.com/problems/champagne-tower/solution/
+maintain a 2D array of how much of champagne has passed through the (r, c) glass till now.
+
+0866 -> Prime Palindrome
+- TRICK: each palindrome of d digits has palindromic root k = (d+1)/2.
+Ex. 12321 => k = 123
+TRICK: next palindrome to each palindrome starts with k+1 palindromic root.
+Ex. next palindrome of 12321 will be 12421.
+TRICK: each palindromic root can be used to build two palindromes, one with odd length, another with even length.
+Ex. 123 => odd=12321, even=123321
+TRICK: Palindromes with even number of digits are never prime as they all can be divided by 11.
+https://leetcode.com/problems/prime-palindrome/solution/
+
+0888 -> Fair candy swap
+- sumA, sumA, avg. sort(A), sort(B). ptrA, ptrB, check abs(A[ptrA]-B[ptrB]) => target=avg. kind of two sum. O(nlgn) O(1)
+- use set. sumA, sumB, avg. check abs(A[i]-avg) in setB. O(A+B) O(B)
+0892 -> Surface area of 3D shapes
+- round1 => (number of cubes * 6) - 2 * (number of cubes - 1) = total surfaces - contact surfaces
+round2 => total_surfaces - 2 * minimum of adjacent cubes in row
+round3 => total_surfaces - 2 * minimum of adjacent cubes in column
+
+1025 -> Divisor Game
+https://leetcode.com/problems/divisor-game/discuss/296784/Come-on-in-different-explanation-from-others
+
+1085 -> Sum of digits of the min number
+- return (sum( map( int, str( min(nums)))) % 2) != 0
+
+1103 -> Distribute candies to people
+- loop until candies are over, use modulo to decide person, keep increasing i.
+
+1281 -> Subtract product and sum of digits of a number
+- separate out digits, maintain sum and prod. return prod - sum.
+A = map(int, str(n)) => converts string to array of integer digits. return reduce(operator.mul, A) - sum(A)
+
+1323 -> Maximum 69 number
+- convert to string, replace first instance of '6' to '9'
+
+INCOMPLETE: 0069, 0166, 0172, 0553, 1266
+
+------------------------------------------------------------------------------------------------------------------------
+Recursion
+
+0010 -> Regular Expression matching
+- https://leetcode.com/problems/regular-expression-matching/solution/
+
+0050 -> Pow(x, n)
+- if n=0 => return 1, n<0 => n=-n, x=1/x. than if n%2==0 => x*Pow(x*x, n/2), else Pow(x*x, n/2)
+
+0200 -> Number of Islands
+- loop through grid, when you find 1,
+increase count and call markIsland, mark (i,j) recursively mark (i+1,j)(i-1,j),(i,j+1),(i,j-1), care about limits
+
+0306 -> Additive number
+- recurse(num1, num2, remain_str). take num1,num2. check addition. eq=>move ahead, not_eq=>backtrack.
+0339 -> Nested list weight sum
+- recurse(list, depth), if isInteger=> res+=int*depth, else=> recurse(list, depth+1)
+
+0638 -> Shopping Offers
+- greedily pick an entry that can suffice quantity. than reduce quantity and recurse and keep doing it.
+if not able to pick special offer than use individual item price. keep track of global minimum.
+
+INCOMPLETE: 0241
+
+------------------------------------------------------------------------------------------------------------------------
+Rotated Array
+
+0033 -> Search in rotated sorted array
+- Use revised binary search with conditions such as A[low] (>= or <) A[mid]
+and within that check other condition to decide which side to take for search
+- look for index of smallest element using binary search logic comparing A[mid] < or > A[high] to decide which side togo
+this index is num of times array is rotated,
+than perform binary search and account for rotation while looking for mid [realmid = (mid + rotation) % n]
+
+0081 -> Search in rotated sorted array 2 (can have duplicates)
+- same as without duplicates
+
+0154 -> Find minimum in rotated sorted array
+- same as 0033, just keep doing binary search until only 1 element is left
+0189 -> Rotate Array
+- reverse 0:n, reverse 0:k, reverse k:n
+- curr=i, (temp=A[i+k], A[i+k]=A[i], i=i+k) <=repeat until i!=current again. than move i=i+1 and repeat again.
+- create a new array. place each i to (i+k)%len(arr) position.
+
+------------------------------------------------------------------------------------------------------------------------
+Segment Tree
+
+0710 -> Random pick with blacklist
+- constructor: sort array, traverse and construct ranges. Use these sorted ranges to build balanced BST (segment tree)
+pick: pick from (-1,0,1) based on that go left, curr, right. Use the range to find random number.
+
+INCOMPLETE: 0307
+
+------------------------------------------------------------------------------------------------------------------------
+Set Questions
+
+0575 -> Distribute candies
+- set(candies).
+if there are more types than candies/2 than sis can have candies/2 types otherwise sis can have all diff types.
+
+------------------------------------------------------------------------------------------------------------------------
+Sliding window
+
+0003 -> Longest substring without repeating characters
+- sliding window with hashmap (key, val) = (char, last appeared index)
+
+0340 -> Longest substring with at most k repeating characters
+- sliding window with hashmap (key, val) = (char, number of times character appeared)
+https://www.programcreek.com/2013/02/longest-substring-which-contains-2-unique-characters/
+
+0560 -> Subarray sum equals k
+- maintain start,end,cur_sum,res_cnt. for each num, add in cur_sum, if cur_sum>target=>start++ else end++.
+0567 -> Permutation in string
+- TRICK: for permutation of string s1 to be present in another string s2,
+counter(s1) must be exactly equal to counter(some part of s2 of len=s1)
+LOOK: https://leetcode.com/problems/permutation-in-string/solution/
+
+0643 -> Maximum average subarray 1
+- maintain k addition and with each move remove k-i number and insert i number. maintain global max.
+
+0683 -> K empty slots
+- https://www.codertrain.co/k-empty-slots
+have a sliding window between left=i to right=i+k+1.
+loop through each element,
+if all elements between i+1 to i+k are smaller than A[left] & A[right] => ans is day that came earlier min(left, right)
+if any element between i+1 to i+k is not smaller than A[i] and A[i+k+1] than move sliding window. left=i,right=i+k+1
+
+1151 -> Minimum swaps required to group all 1's together
+- count number of 1's in array (say k). than find subarray of size k that contains maxOnes. return k-maxOnes.
+https://www.geeksforgeeks.org/minimum-swaps-required-group-1s-together/
+
+1208 -> Get equal substring with budget
+- use difference between characters of strings as diff array values.
+add using end ptr in result until it gets > than budget, and remove from result using start ptr until < than budget.
+
+1358 -> Number of substrings containing all three characters
+- Observe: string contains only 3 distinct characters.
+Trick: know first occurence index of each distinct character.
+we will maintain where was first instance of each character was found (say in list called first).
+we will move the end pointer further every time. after moving end pointer, answer has to be incremented by min(first).
+why? because first occurence of char happens at index 'first'. so everything between [0, first] also can make valid substring.
+https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
+
+------------------------------------------------------------------------------------------------------------------------
+Sorting Questions
+
+0075 -> Sort Colors (three digits)
+- Count sort
+- use left and right pointers for 0 and 2. due to all swaps 1's will automatically be in middle.
+
+0164 -> Max Gap
+- use radix sort and find max diff btw neighbouring elements. O(n) & O(n)
+https://leetcode.com/problems/maximum-gap/discuss/50642/Radix-sort-solution-in-Java-with-explanation
+- sort array and find max diff between neighbouring elements. O(nlgn)
+
+0315 -> Count of smaller numbers after self
+PYTHON: to construct list of tuples that hold (idx, val) = list(enumerate(lst1))
+- perform merge sort and keep counts of all numbers that have to be taken from right half instead of left half as these
+are smaller numbers that needs to be moved ahead of larger numbers that are on its left.
+
+1086 -> High five
+- sort by id, than count sort by marks, take highest five entries, calculate average.
+
+------------------------------------------------------------------------------------------------------------------------
+Stack Questions
+
+0020 -> Valid Paranthesis
+- put '(, [, {' in stack, pop when '), ], }' encounters, use hashmap to easily match, check if stack is not empty
+
+0032 -> Longest valid parantheses [similar: 1249]
+- TRICK: traverse L->R, count open and close, open==close => count len, close>open => reset counters. do same for R->L.
+- TRICK: remember index in stack. initialize with -1, '('=>push, ')'=>pop, empty->push else->max=(max, max-top)
+- my solution with lots of conditions => https://leetcode.com/problems/longest-valid-parentheses/submissions/
+
+0071 -> Simplify Path
+- split string with '/', than ignore '.', pop on '..', push on any string
+
+0150 -> Evaluate reverse polish notation
+- number=>push, expression=>pop1 and pop2, result=>push
+0155 -> Min Stack
+- maintain each entry in stack as tuple (element, min-element in stack till now).
+
+0503 -> Next greater element 2 (circular array)
+[Technique] repeat original array and make it of size 2*n.
+- stack. push all indices in stack.
+    for each num, while pop until higher number than current number is found and assign in res. than push curr index.
+- brute-force.
+
+0636 -> Exclusive time of functions
+- https://leetcode.com/problems/exclusive-time-of-functions/solution/
+
+0682 -> Baseball game
+- loop through arr, push int, pop at 'C', peek double push at 'D', pop peek add push push at '+'
+
+0921 -> Minimum add to make a valid paranthesis
+- '('=>push, ')'=>try to pop if can't than increase cnt. return cnt + "any open brackets" a.k.a len(stack)
+
+1047 -> Remove all adjacent duplicates in string
+- go through string, compare chars, IF match=>update str by slicing, go back to prev char i=i-1 ELSE move to next char.
+- use stack. for each char in str, check top of stack, IF match=>pop,discard ELSE push.
+    PYTHON: reduce(fn, seq). https://www.geeksforgeeks.org/reduce-in-python/
+
+1190 -> Reverse substring between each pair of paranthesis
+- initialize stack, put first entry as ''. loop through string, '('=>start new entry in stack.
+    'a-z'=>insert in stack top entry. ')'=>pop, reverse, append in top entry.  return stack[-1]
+
+1209 -> Remove All adjacent duplicates in string 2
+- use stack (ch, cnt occurence of ch). initialize with [#, 0] to avoid empty stack issue.
+    loop string, IF c matches ch at top of stack, than increase cnt, if cnt==k than pop. ELSE (no match)=> push (c, 1)
+    return ''.join(ch*occurence for each stack entry)
+
+1249 -> Minimum remove to make valid parantheses [similar: 0032]
+- keep openCnt, closeCnt. go L->R, skip char copy and reset if closeCnt>openCnt.  similar for R->L.
+- '('=>push idx, ')'=> stack empty?=> mark '*', else=>pop(). at end while stack empty=> mark indices as '*'.
+    remove all * from string and return.
+    https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/discuss/419402/JavaC%2B%2B-Stack
+
+INCOMPLETE: 0227, 0331
+
+------------------------------------------------------------------------------------------------------------------------
+String Questions
+
+0008 -> String to Integer (atoi)
+- multiply by 10 and ascii conversion logic
+0028 -> Implement strstr()
+- run a sliding window of chars, check each char of needle in haystack when chars match
+- slice haystack from i to i + len(needle), check equality with needle
+- treat each alphabet as unique prime number and multiply, slide window and remove old and add new to calculate new prod
+
+0058 -> Length of last word
+- trim the string, start from end, count till first space is hit.
+
+0125 -> Valid Palindrome
+- two pointers front and rear
+- reverse string and compare
+
+0151 -> Reverse words in a string
+- split by space, than reverse words, join string
+- clean spaces from front and end, reverse entire string, reverse each word clean spaces between words.
+
+0187 -> Repeated DNA sequences
+- brute force. pick 10 char sequence. than check if it matches any other 10 char seq from i+10
+- hashmap. loop through sequence. store (key,val)=(10 char seq, count)
+additionally to reduce memory used in hashmap, bitmap constructed by DNA chars can be used. (using two bits for each ch)
+
+0193 -> Valid phone numbers
+- check first char. if '(' => type1, else type2
+type1=> split by ' ', A[0][0]='(', A[0][4]=')', A[0][1:4]=num, split A[1] by '-', B[0]=num, B[1]=num
+type2=> split by '-', A[0]=num, A[1]=num, A[2]=num
+
+0205 -> Isomorphic Strings
+- use two sided hashmap to map character in str1 to char in another str and vice versa
+
+0290 -> Word Pattern
+- check len(pattern)==len(sentence), check len(set(zip(pattern, sentence)))==len(set(pattern))==len(set(sentence))
+- use two maps ptow and wtop. check len(pattern)==len(sentence). loop, check c->word and word->c.
+
+0318 -> Maximum product of word lengths
+- for each word, go through each char in set(word), and generate bitmask that has bits set at 1<<ch-'a' location.
+put this bitmask into hashmap (bitmask, len(word)). if multiple words make same bitmask, use the word with longest len.
+check each hashmap entry with other entries O(n^2), and find max product of lengths.
+
+0392 -> Is subsequence
+- start=0, for each c in s, start=t.find(c, start), if start==-1 => return False, start += 1.   return True
+
+0439 -> Ternary expression parser
+- loop from end to start, if '?'=>
+if 'T'=> res=s[i+1], s= string till 'T' + result of current exp + string left till end. s[0:i-1] + s[i+1] + s[i+3:]
+if 'F'=> res=s[i+3], s= string till 'F' + string after ':'. s[0:i-1] + s[i+3:]
+
+0459 -> Repeated substring pattern
+- TRICK: join string with itself, so double its size. [in n size str, pattern can be at most n/2 length]
+ss = remove first and last character => as it removes repeatation of pattern from front and end.
+now search for string in joined string ss. if string exist in joined string than its made from repeated string.
+
+0520 -> Detect capital
+- 1 char word, return true. check 1st and 2nd char. based on which word[2:n] has to be all caps or all small.
+- return word.isUpper() or word.isLower() or word.isTitle()
+0521 -> Longest uncommon subsequence 1
+- return -1 if a==b else max(len(a), len(b)).
+0524 -> Longest word in dictionary through deleting
+- counter(s), d.sort(), d.sort(len, reverse).
+loop through d, counter(word), AND counters,
+ANDed counter == word counter => using two pointers check if word is entirely covered by s in sequence. return word.
+0541 -> Reverse string 2
+PYTHON: string itself is immutable
+- loop with 2k step, check if i+k exceeds len =>take part and reverse, check if i+2k exceeds len=> take part as is.
+- https://leetcode.com/problems/reverse-string-ii/solution/
+
+0551 -> Student attendance record
+- return (s.find("A") == s.rfind("A")) and (s.find("LLL") == -1)
+- go through each char, A=>acnt++, L=>lcnt++ else l=0, a>=2 or l>2 => return false.  return true.
+0557 -> Reverse words in string 3
+- return ' '.join([word[::-1] for word in s.split()])
+
+0640 -> Solve the equation
+- use split function to solve
+https://leetcode.com/problems/solve-the-equation/solution/
+0647 -> Palindromic substring
+- https://leetcode.com/problems/palindromic-substrings/solution/
+
+0709 -> To lowercase
+- loop through each char, ascii operation, prepend in result.
+
+0771 -> Jewels and stones
+- Sets. return sum(s in set(J) for s in S)
+0791 -> Custom sorted string
+- use map (char, sort priority pos). loop through S and populate map.
+use list indexed using sort priority pos and val as number of times char appears. construct and return result.
+0796 -> Rotate string
+- TRICK: double original string and look for rotated string in original.
+PYTHON: str.find(substr, start, end) => https://www.programiz.com/python-programming/methods/string/find
+return (len(A) == len(B)) and ((A + A).find(B) != -1)
+
+0821 -> Shortest Distance to a character
+- PYTHON: to have max and min value initialization, we can use var = float('-inf') or float('inf').
+keep two arrays, backward and forward with distance from last seen C. loop through res and insert min(back, forw)
+0839 -> Similar string groups
+- Brute force. for each word, check all other words, see if only 1 char is misplaced, than mark this word "done".
+
+0893 -> Special Equivalent string
+- generate odd and even array of 26 char, and than merge them using toString and put in set. return set.size()
+https://leetcode.com/problems/groups-of-special-equivalent-strings/discuss/163413/Java-Concise-Set-Solution
+
+1003 -> Check if word is valid after substitution
+- keep counting chars as you move. string must contain an instance of 'abc'.
+count of 'a's should always be max, count of 'b' should be <= 'a's but > 'c's, count of 'c' should always be min.
+at the end count of all 'a', 'b', 'c' should be same.
+1023 -> Camelcase matching
+- https://leetcode.com/problems/camelcase-matching/discuss/270006/Java-Easy-Two-Pointers
+
+1065 -> Index pairs of a string
+- two ways to get all locations of substring from a string
+[i for i in range(len(text)) if text.startswith(subtext, i)]
+[i.start() for i in re.finditer(text, subtext)]
+
+1108 -> Defanging an IP address
+- str.replace('.', '[.]')
+1119 -> Remove vowels from string
+- two pointer approach
+
+1221 -> Split a string into balanced string
+- loop through each char, maintain R_cnt and C_cnt, whenever R_cnt=C_cnt append slice in result and reset variables.
+1247 -> Minimum swaps to make strings equal
+- https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/discuss/419874/Simply-Simple-Python-Solution-with-detailed-explanation
+
+1295 -> Find numbers with even number of digits
+- sum(len(n) % 2 == 0 for n in map(str, nums)) OR sum(len(str(n)) % 2 == 0 for n in nums)
+
+1324 -> Print words vertically
+- num of colums = max length word from list. pad word at end with spaces if needed.
+for each word, append chars in result list column wise.cd
+1332 -> Remove palindromic subsequences
+- Observe: you are asked for subsequence (can be non-continuous) not subarray (continuous).
+Observe: the string only contains 2 distinct characters 'a' and 'b'.
+if str is empty => return 0, if str is palindrome => return 1,
+otherwise return 2. where 1 step to remove all 'a's and another for all 'b's
+
+1374 -> Generate a string that has characters that have odd counts
+- return 'a'*(n-1)+'b' if (n%2==0) else 'a'*n
+1392 -> Longest happy prefix
+- take len from n-1 to 0 and loop, compare if s[:x]==s[len(s)-x:] => return answer
+
+INCOMPLETE: 0014, 0522
+
+------------------------------------------------------------------------------------------------------------------------
+Tree
+
+0222 -> Count complete tree nodes
+- find height of tree, than recurse from right and remove num of elements not present from 2^h-1 to find answer
+base case: leaf node and node-height equals tree-height (all leaf nodes came prior to this node to be subtracted)
+
+------------------------------------------------------------------------------------------------------------------------
+Trie Questions
+
+0192 -> Word Frequency
+- Hashmap. (key,val) => (word, count)
+- Counter. split string using ' '. give list in counter.
+- create a trie, at end of word keep count.
+
+0211 -> Add and Search word
+- init=> array of 26 chars, isWordEnd
+Add=> loop through word, assign or use char, node=node.child[c-'a']. node.isWordEnd=true
+Search=> if word is empty and node.isWordEnd than return True.
+if word[0]='.'=>loop each child and recurse(child node, word[1:]), else use node.child[word[0]-'a'] recurse.
+
+0648 -> Replace words
+- create trie out of given dict. split sentence by space. lookup each word in trie, replace if successor found.
+https://leetcode.com/problems/replace-words/solution/
+
+1233 -> Remove subfolders from the file system
+- sort (so that all subfolders come at front of their internal folders). create a trie (isEnd, defaultdict).
+if isEnd is found before completing insert of entire path than current path has subfolder otherwise append is result.
+
+1268 -> Search suggestions system
+- create a trie from given list. loop through str, create list of 3 shortest distance products from Trie.
+
+INCOMPLETE: 0208
+
+------------------------------------------------------------------------------------------------------------------------
+Priority Queue Questions
+
+0215 -> Kth largest element in an array
+- sort array and return kth element
+- Using priority queue with priority = val, take kth entry
+- selection algorithm using quicksort partition
+
+------------------------------------------------------------------------------------------------------------------------
+Queue Questions
+
+0346 -> Moving average from data stream
+- use queue to hold k entries. when new entry comes, add it in sum, if no space left, pop and subtract, append in queue.
+
+0622 -> Design a circular queue
+- maintain queue, max_size, cur_size, front and rear.
+https://leetcode.com/problems/design-circular-queue/discuss/172230/Python3-with-a-single-list-beats-100
+0640 -> Design a circular dequeue
+- maintain queue, max_size, cur_size, front and rear.
+
+INCOMPLETE: 0225, 0232, 0621
