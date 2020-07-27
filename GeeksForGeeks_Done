@@ -1,0 +1,221 @@
+------------------------------------------------------------------------------------------------------------------------
+Array Questions
+PYTHON:
+    array(data_type, value_list) : data_type can be small or capital (b, u, h, i, l, q, f, d)
+    append(val) : add value at end of array
+    insert(i, x) : insert x at ith location
+    pop(i) : remove element at ith (default i=end) location
+    remove(val) : remove first occurrence of val from array
+    index(val) : return first occurrence of val from array
+    reverse() : reverses array
+
+------------------------------------------------------------------------------------------------------------------------
+Array Rotation Questions
+
+Q. Rotate Array  (care only about reversal algorithm)
+https://www.geeksforgeeks.org/array-rotation/
+- Using O(n) extra space. place each ith element at (i+d)%n th place in new array.
+- Using O(d) extra space. place first d elements in temp arr, than move each ith ele to (i-d)th place, copy temp at end.
+- In O(n*d) time. move ith ele to (i-1)th place d times.
+- Juggling algorithm O(n) time. take x=GCD(n, d) and divide array in x sections.
+    temp=arr[i], i=j
+    while(1)==> k=j+d, k>=n ==> k=k-n, k==i ==> break, arr[j]=arr[k], j=k.  at last arr[j]=temp.
+https://www.geeksforgeeks.org/program-for-array-rotation-continued-reversal-algorithm/
+- Reversal algorithm O(n). reverse(0 to d), reverse(d+1 to n), reverse(0 to n)
+https://www.geeksforgeeks.org/block-swap-algorithm-for-array-rotation/
+- Block swap O(n).
+
+------------------------------------------------------------------------------------------------------------------------
+Array Rearrangement Questions
+
+Q. Rearrange an array such that arr[i] = i
+https://www.geeksforgeeks.org/rearrange-array-arri/
+- run while loop, place at correct location and increment i as required.
+
+Q. Reverse an array
+https://www.geeksforgeeks.org/array-data-structure/
+- swap i to n-i
+
+Q. Rearrange array such that arr[i] >= arr[j] if i is even and arr[i]<=arr[j] if i is odd and j < i
+https://www.geeksforgeeks.org/rearrange-array-arri-arrj-even-arri/
+- take copy of arr and sort the copy. place n/2-1 to 0 elements at odd posn, and n/2 to n elements at even posn.
+
+Q. Rearrange positive and negative numbers [CODE THIS]
+https://www.geeksforgeeks.org/rearrange-positive-and-negative-numbers-publish/
+- use quicksort partition method using pivot=0 to bring all -ve to front of arr and +ve to rear. neg=0, pos=pivot_idx+1
+  swap each alternative -ve num with next pos number
+
+Q. Rearrange array in alternating positive & negative (maintain order) [CODE THIS]
+https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/
+- go through arr, find first ele that is out of place, then look for first ele on its right side that can take its place
+  right rotate arr between these two elements including both elements by 1.
+  do this until no element for rotation can be found.
+
+Q. Move all zeroes to end of array (maintain order)
+https://www.geeksforgeeks.org/move-zeroes-end-array/
+https://www.geeksforgeeks.org/move-zeroes-end-array-set-2-using-single-traversal/
+- loop, if non zero element is found, place it at non_zero_idx, inc nz_idx. At end, from nz_idx to n place 0s.
+
+------------------------------------------------------------------------------------------------------------------------
+Binary Search Questions
+
+------------------------------------------------------------------------------------------------------------------------
+Dynamic Programming Questions
+
+Stack Based
+https://www.geeksforgeeks.org/number-nges-right/
+
+------------------------------------------------------------------------------------------------------------------------
+Hash Map Questions
+
+Q. Find Itinerary from a given list of tickets
+https://www.geeksforgeeks.org/find-itinerary-from-a-given-list-of-tickets/
+- Construct two maps (from, to) and (to, from). Find source from which journey starts (this key won't be in 2nd map)
+  Now from origin, construct itinerary using 1st map.
+
+Q. Find number of Employees Under every Employee
+https://www.geeksforgeeks.org/find-number-of-employees-under-every-manager/
+- Construct map (manager, list of direct reports). go through each manager and recursively keep counting. (memoization)
+
+Q. Count divisible pairs in an array
+https://www.geeksforgeeks.org/count-divisible-pairs-array/
+- NOTE: works for numbers with smaller range.
+  build a hashmap with all numbers, find max, look for multiples of each num until max, make pairs if multiple is found.
+
+------------------------------------------------------------------------------------------------------------------------
+Math Questions
+
+Q. Write an Efficient Method to Check if a Number is Multiple of 3
+https://www.geeksforgeeks.org/write-an-efficient-method-to-check-if-a-number-is-multiple-of-3/
+- TRICK: num is multiple of 3 if sum of all digits of the num is also multiple of 3
+- TRICK: num is multiple of 3
+        if diff of count of bits at odd positions - count of bits at even positions is multiple of 3
+
+------------------------------------------------------------------------------------------------------------------------
+Sliding Window Questions
+
+Q. Smallest subarray with sum greater than a given value
+https://www.geeksforgeeks.org/minimum-length-subarray-sum-greater-given-value/
+Leetcode: similar to 0560 -> Subarray sum equals k
+
+Q. Count distinct elements in every window of size k
+https://www.geeksforgeeks.org/count-distinct-elements-in-every-window-of-size-k/
+Leetcode: similar to 0992 -> Subarrays with K Different Integers
+PYTHON: You can't use integer type KEY in Counter update and subtract methods.
+
+Q. Remove k corner elements to maximize remaining sum
+https://www.geeksforgeeks.org/remove-k-corner-elements-to-maximize-remaining-sum/
+- Keep two pointer left=0, right=len(A)-1. whichever is smaller, discard it. return sum(A[left:right+1])
+
+Q. Find subarray of Length K with Maximum Peak
+https://www.geeksforgeeks.org/find-subarray-of-length-k-with-maximum-peak/
+- in a new array, find and mark peaks. prefix sum the array. move window,
+    keep count(make sure to clip edges as they can't be peaks) and indices.
+
+------------------------------------------------------------------------------------------------------------------------
+Stack Questions
+
+Q. Implement a stack using single queue   (using two queue is more efficient and its in leetcode questions)
+https://www.geeksforgeeks.org/implement-a-stack-using-single-queue/
+- push(x) ==> enqueue x, deque size-1 elements from queue and enqueue them again in queue
+  pop() ==> deque element
+
+Q. Implement two stacks in an array
+https://www.geeksforgeeks.org/implement-two-stacks-in-an-array/
+- start from two ends and shrink, for overflow check diff between two tops.
+
+Q. How to efficiently implement k stacks in a single array?
+https://www.geeksforgeeks.org/efficiently-implement-k-stacks-single-array/
+- Need to maintain couple of auxiliary arrays to maintain top of k stacks and at each location next elem's location.
+
+Q. How to implement stack using priority queue?
+https://www.geeksforgeeks.org/implement-stack-using-priority-queue-or-heap/
+- insert as (key, val) = (x, cnt), increment cnt with each push, decrement with pop. highest cnt is highest priority.
+
+Q. Implement stack and queue using deque
+https://www.geeksforgeeks.org/implement-stack-queue-using-deque/
+- stack: append => push, pop => pop
+  queue: appendLeft => enqueue, pop => deque
+
+Q. Design a stack with operations on middle element
+https://www.geeksforgeeks.org/design-a-stack-with-find-middle-operation/
+- make stack using doubly LL, maintain mid pointer, update mid pointer based on stack size during push and pop so that
+    getMid() and deleteMid() can be performed in O(1) time.
+
+Q. How to create mergable stack?
+https://www.geeksforgeeks.org/create-mergable-stack/
+- implement stack using LL, maintain tail. merge(s1, s2) ==> s1.tail.next=s2.head, s1.tail=s2.tail
+
+Q. Convert expression from Infix to postfix
+https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
+- keep a stack of operator (and brackets) and manage based on precedence
+  operand => put in result directly
+  '(' => push
+  ')' => pop and put in result until stack is empty or '(' is encountered. discard '(' and ')'
+  operator => pop and put in res until stack is not empty, not '(' and op from stack has lower precedence. push operator
+
+Q. Convert expression from Infix to prefix [CODE THIS]
+https://www.geeksforgeeks.org/convert-infix-prefix-notation/
+- use infix to postfix as utility
+  reverse infix string, change each '(' to ')' and each ')' to '('
+  perform infix to postfix conversion
+  reverse postfix string (which will give you prefix string)
+
+Q. Expression Evaluation [CODE THIS]
+https://www.geeksforgeeks.org/expression-evaluation/
+- keep two stacks, value_stack and operator_stack
+  same as infix to postfix but evaluate and push as needed. At the end have empty op_stack and single val in val_stack.
+https://www.geeksforgeeks.org/arithmetic-expression-evalution/
+- convert infix to postfix first. than evaluate postfix going left to right, push operands, pop when operator encounters
+https://www.geeksforgeeks.org/stack-set-4-evaluation-postfix-expression/
+
+Q. Convert expression from prefix to infix
+https://www.geeksforgeeks.org/prefix-infix-conversion/
+- evaluate from right to left
+  operand => push
+  operator => pop, pop, perform '(' + popped1 + op + popped2 + ')', push
+
+Q. Convert expression from prefix to postfix
+https://www.geeksforgeeks.org/prefix-postfix-conversion/
+- evaluate from right to left
+  operand => push
+  operator => pop, pop, perform '(' + popped1 + popped2 + op + ')', push
+
+Q. Convert expression from postfix to prefix
+https://www.geeksforgeeks.org/postfix-prefix-conversion/
+- evaluate from left to right
+  operand => push
+  operator => pop, pop, perform '(' + op + popped2 + popped1 + ')', push
+
+Q. Convert expression from postfix to infix
+https://www.geeksforgeeks.org/postfix-to-infix/
+- evaluate from left to right
+  operand => push
+  operator => pop, pop, perform '(' + popped2 + op + popped1 + ')', push
+
+Q. Next greater element
+https://www.geeksforgeeks.org/next-greater-element/
+- loop from end to start, while stack and top < elem, keep popping, res=top if stack else -1, push(elem).
+
+Q. Next greater frequency element
+https://www.geeksforgeeks.org/next-greater-frequency-element/
+- same as Next greater element, just use counter of element for check instead of element itself.
+
+Q. Next greater element for Q queries
+https://www.geeksforgeeks.org/print-next-greater-number-q-queries/
+- Pre-process next greater elements and populate next[] array. Than for each query simply return using next arr.
+
+Q. Number of NGEs to the right [DP]
+https://www.geeksforgeeks.org/number-nges-right/
+- use next greater element as utility
+
+Q. Celebrity problem
+https://www.geeksforgeeks.org/the-celebrity-problem/
+- TRICK: elimination technique. if A knows B => A is not celebrity, if A doesn't know B => B is not celebrity.
+  push everything is stack, while stack has >1 entry, pop 2 items, do elimination and push winner in stack. repeat.
+  when last element remains in stack, check if it is really a celebrity. (it knows 0 people and everybody knows it)
+
+Q. Iterative tower of hanoi
+https://www.geeksforgeeks.org/iterative-tower-of-hanoi/
+- Use 3 stacks (src, aux, dest) as poles. total 2^disks-1 moves needs to be performed.
+  based on the move number (i % num_of_disks), decide disk needs to move from which stack to which stack.

@@ -25,7 +25,7 @@
 0200, 0201, 0202, 0203, 0204, 0205, 0206, 0209
 0211, 0215, 0216, 0217, 0219,
 0220, 0222, 0223, 0226, 0228, 0229
-0230, 0231, 0234, 0235, 0236, 0237, 0238
+0230, 0231, 0232, 0234, 0235, 0236, 0237, 0238
 0240, 0242, 0249
 
 0257, 0258
@@ -34,7 +34,7 @@
 0280, 0283, 0286, 0287, 0289
 0290, 0292, 0299
 
-0303, 0306
+0303, 0304, 0306
 0315, 0318, 0319
 0324, 0325, 0326, 0328
 0334, 0339
@@ -44,7 +44,7 @@
 0388, 0389
 0392, 0399
 
-0404, 0405, 0406
+0402, 0404, 0405, 0406
 0429
 0439
 0448
@@ -52,6 +52,7 @@
 0450, 0459
 0463
 0483, 0485
+0495
 
 0501
 0526
@@ -59,7 +60,7 @@
 0541, 0543
 
 0557, 0559
-0573, 0575
+0572, 0573, 0575
 0589, 0590
 
 0605, 0606, 0609
@@ -68,12 +69,12 @@
 0632, 0633, 0636, 0638
 0640, 0641, 0643, 0645, 0647, 0649
 
-0653
+0653, 0654
 0662, 0669
 0681, 0682
 0692, 0694, 0695
 
-0701, 0702, 0704, 0708, 0709
+0701, 0702, 0704, 0707, 0708, 0709
 0710
 0733, 0738
 
@@ -83,21 +84,24 @@
 0785
 0791, 0796, 0799
 
-0807
+0804, 0807
 0821
 0839
-0842
+0842, 0844
 
 0860, 0863, 0865, 0866
-0876
-0883, 0888
+0875, 0876
+0883, 0884, 0888
 0890, 0892, 0893
 
+0901
 0921
+0942
 
 0965
 0973
 0980
+0998
 
 1002, 1003
 1014, 1016
@@ -111,10 +115,10 @@
 1103, 1108, 1109
 1119
 1122
-1133
+1133, 1134
 
 1151
-1165
+1161, 1162, 1165
 1171
 1184
 1190, 1196
@@ -125,22 +129,27 @@
 1233
 1247, 1249
 
-1254
-1265, 1268
+1252, 1254
+1265, 1267, 1268
+1276
 1281
 1290, 1295, 1296, 1299
 
-1304
+1304, 1309
 1310, 1311, 1313, 1315, 1318
-1323, 1324, 1329
+1323, 1324, 1325, 1329
 1330, 1332
-1342
+1342, 1346
 
 1351, 1356, 1358
 1365, 1366, 1367
 1370, 1373, 1374, 1375, 1376, 1377, 1379
 1380, 1389
-1392, 1394
+1392, 1394, 1395
+
+1409
+1423, 1426, 1427
+1431,
 
 DO AGAIN: 0581, 0807,
 
@@ -171,6 +180,8 @@ Array Questions
 - sort numbers, loop through each element, use two pointer technique, find closest to target and maintain result
 0018 -> Four Sum
 - sort numbers, pick two elements (non duplicate), use two-sum pointer technique, find (target - two taken numbers)
+0653 -> Two sum 4 - input is BST
+- inorder traversal. than two sum with two pointers.
 
 0026 -> Remove duplicates from sorted array
 - move two pointers and swap as needed
@@ -230,6 +241,10 @@ https://leetcode.com/problems/rotate-function/discuss/195613/6-lines-Python-O(N)
 0485 -> Max consecutive ones
 - loop, if 1 => increase cnt, else => max(max_ones, ones), reset ones. return max(max_ones, ones).
 
+0495 -> Teemo attacking
+- loop through attacks, if attack happened before duration completed than increase faint_time by diff of two attacks,
+    else increase faint time by total duration.
+
 0506 -> Relative Ranks
 - create a list of tuples. (rank, index). sort using rank. loop and use index to place results in result array.
 
@@ -259,6 +274,9 @@ TRICK: keep running min from end in an array. compare orig[i] to minn[i+2], if i
 
 0860 -> Lemonade change
 - 5=>cnt5+1, 10=>cnt10+1,cnt5-1,cnt5<0=>False, 20=> if cnt10=>cnt10-1,cnt5-1; if cnt5=>cnt5-3; cnt5<0=>False. return True
+
+942 -> DI String Match
+- start=0, end=len(S). loop through S, 'I'=>use start and inc, 'D'=>use end and dec. add last digit based on last char.
 
 0973 -> K closest points to origin
 - make a list of tuples (dist to origin, point idx). sort tuples using dist. loop through K entries, add points in res.
@@ -308,15 +326,19 @@ return min(distBtwBusStops, total - distBtwBusStops)
 1389 -> Create target array in given index
 - loop through zipped(nums, index), res.insert(idx, num), return res
 
+1395 -> Count number of teams
+- Brute Force. three loops, pick numbers. O(n^3)
+
+1409 -> Queries on a permutation with key
+- construct arr, go through each query, lookup in arr, pop from arr, append in res, append at front in arr.
+
+1431 -> Kids With the Greatest Number of Candies
+- find max. check if adding extra candies is >= max.
+
 INCOMPLETE: 0284
 
 ------------------------------------------------------------
 Traverse 0 -> N OR N -> 0 Ones
-
-0162 -> Find peak element
-- traverse through array and look for A[i-1]<A[i]>A[i+1]. return i.
-- because we can return any peak element, we can use binary search. while start < end, mid-1 < mid > mid+1=>return mid.
-if not satisfied mid < mid+1 => left=mid+1, else right=mid-1.
 
 ------------------------------------------------------------
 Arrays containing numbers 1 to N
@@ -394,6 +416,11 @@ BackTracking Questions
 - backtrack, always start with first num again as a number can be used multiple times in solution, avoid duplicates
 0040 -> Combination Sum 2
 - backtrack, start with next num as a number cannot be used multiple times in solution, avoid duplicates with logic
+0077 -> Combinations (n, k)
+PYTHON: to append a list to another list with deepcopy = finaList.append(currList[:])
+- backtrack with avoiding duplicates with logic = start from next index in recursive call
+0216 -> Combination Sum 3
+- backtrack with avoiding duplicates with logic
 
 0046 -> Permutations
 - backtrack, simply if duplicate found in temp-result-list than skip it and continue with next num
@@ -409,18 +436,26 @@ https://leetcode.com/problems/permutations-ii/discuss/18602/9-line-python-soluti
 - using n create a list of values and create a list of factorials.
 Subtract from k positions that are not solution using factorials. add correct value in result.
 
-0077 -> Combinations (n, k)
-PYTHON: to append a list to another list with deepcopy = finaList.append(currList[:])
-- backtrack with avoiding duplicates with logic = start from next index in recursive call
-0079 -> Word Search
-- mark visited by changing used char to $, look for first char (backtrack if not what we want).
-call util with remaining str, first char pos, visited. check adjacent chars (check boundaries) (backtrack)
 0093 -> Restore IP Address
 - backtrack with tuple dig=1->2->3. 0<=tuple<=255. empty str after 4 tuple as base case.
 - use fact that only 4 tuple can be there. loops to make (0, i).(i+1, j).(j+1, k).(k+1, len) .check if tuples are valid.
 
-0216 -> Combination Sum 3
-- backtrack with avoiding duplicates with logic
+0131 -> Palindrome Partitioning
+- backtrack(s, start, res, final). basecase: if start >= len(s) ==> final.append(res), return.
+    go through start to len(s) and construct a candidate,
+    if candidate is not palindrome than continue, else append in res, backtrack(s,idx+1,res,final), pop from res.
+0132 -> Palindrome partitioning 2  [Similar: 0131]
+- you could use same approach as 0131.
+
+0246 -> Strobogrammatic Number
+- set("00", "11", "88", "69", "96"). than go through start and end. pick two chars and check in set.
+0247 -> Strobogrammatic Number 2
+- go through n. and pick two chars at a time. backtrack using each entry in set. basecase: n==0.
+0248 -> Strobogrammatic Number 3
+- same as 0247 but basecase: within a range.
+
+0257 -> Binary tree paths
+- leaf check=> append in res. add left.val recurse(left) remove add left.val, same as left for right.
 
 0388 -> Longest absolute file path
 - maxlen=0 and pathlen dictionary (depth, length)
@@ -456,16 +491,23 @@ for each allowed combination, check if both chars exist.
 0842 -> Split array into fibonacci sequence
 - https://leetcode.com/problems/split-array-into-fibonacci-sequence/discuss/133936/short-and-fast-backtracking-solution
 
-0980 -> Unique paths 3
-- find start, count total walkable spots. util(grid, x, y, total_walkable, curr_walkable, res).
-bound check, visited or obstacle check, destination + walkable covered check. mark visited, move L-R-U-D, mark unvisited
-
 1375 -> Bulb Switcher 3
 - TRICK: maintain index of the rightMost bulb that has been turned on till now.
 for each bulbLoc in given arr, turn on bulb, see if its immediate prev is blue, than set curr as blue,
 check if any immediate next is yellow than turn them to blue, check if rightmost is not yellow than increase allBlue cnt
 
 INCOMPLETE: 0051, 0052
+
+--------------------------------------------------------------
+2D Backtrack Questions
+
+0079 -> Word Search
+- mark visited by changing used char to $, look for first char (backtrack if not what we want).
+call util with remaining str, first char pos, visited. check adjacent chars (check boundaries) (backtrack)
+
+0980 -> Unique paths 3
+- find start, count total walkable spots. util(grid, x, y, total_walkable, curr_walkable, res).
+bound check, visited or obstacle check, destination + walkable covered check. mark visited, move L-R-U-D, mark unvisited
 
 ------------------------------------------------------------------------------------------------------------------------
 Binary Search
@@ -482,100 +524,76 @@ search2=> look for right end using target + 1 number
 0278 -> First bad version
 - check mid, good=>right, bad=>left.
 
-0501 -> Find Mod
-- do inorder traversal and keep counting until node.left.val == node.val. keep max_count
-
 0702 -> Search in a sorted array of unknown size
 - OBSERVE: it is given that each value in array is unique and value will range from -9999 to 9999. So max elem = 20000
 take low=0, high=20000 and do binary search. if interface sends out of range or val doesn't match target =>reduce range.
 
+0074 -> Search a 2D matrix
+- use l=0, r=m*n-1. do binary search. row = mid/m, col = mid%m.
+0240 -> Search a 2D matrix 2
+- start from top right corner. loop until col>=0 or row<len, if target found=>return,
+if target is smaller than col--, if target is bigger than row++.    => O(m+n)
+
+0941 -> Valid Mountain Array
+- while check rising slope. i still 0 or N-1? => sorted arr (not mountain). while check falling slope. return i==len(A).
+0852 -> Peak Index in Mountain Array
+- mid check, rising slope check, falling slope check.
+0162 -> Find peak element
+- traverse through array and look for A[i-1]<A[i]>A[i+1]. return i.
+- because we can return any peak element, we can use binary search. while start < end, mid-1 < mid > mid+1=>return mid.
+    recursively look in both directions as array is not sorted.
+
+0875 -> Koko eating bananas
+- https://leetcode.com/problems/koko-eating-bananas/discuss/152506/Binary-Search-Java-Python-with-Explanations
+
 ------------------------------------------------------------------------------------------------------------------------
 Binary Tree Questions
 
-0094 -> Inorder traversal
-- base case. L->C->R
-0100 -> Same Tree
-- any traversal
-
 0101 -> Symmetric Tree
 - null check, value check, fn(left, right), fn(right, left)
-0102 -> Level order traversal
-- queue push. while queue, pop, put in result, push left, push right. keep count=len(queue) to change level.
-0103 -> Zigzag level order traversal
-- maintain level by doing modulo by 2
-- maintain tempList and flag for level, reverse tempList based on flag, flip flag when queue empties
-0104 -> Maximum depth of binary tree
-- check null, return 1 + max(findDepth(left), findDepth(right))
+0226 -> Invert binary tree
+- null check. left=recurse(right), right=recurse(left) return root.
+
 0105 -> Construct binary tree from preorder and inorder representation
 - use preo[0] as root. look for idx = ino[preo[0]].
 left = recurse(preo, ino[0:idx]), right = recurse(preo, ino[idx+1:]
 0106 -> Construct binary tree from inorder and postorder representation
 - use posto[-1] as root. look for idx = ino[posto[-1]].
 left = recurse(posto, ino[0:idx]), right = recurse(posto, ino[idx+1:])
-0107 -> Level order traversal 2 (reverse order)
-- do regular level order traversal and reverse the list
-0110 -> Balanced binary tree
-- null=>0. left=recurse(left), right=recurse(right). anytime(-1)=>-1. diff(left,right)>1=>-1. return max(left,right)+1
-0111 -> Minimum depth of binary tree
-- null check. return (left or right = 0) ? left+right+1 : 1+min(recurse(left), recurse(right))
-0112 -> Path Sum
-- null check, sum check. add, recurse. anytime(true)=>true.
-0113 -> Path Sum 2 (return list of paths)
-- null check, sum check, append list. add, recurse.
+
 0116 -> Populating next right pointer for each node (complete binary tree)
 - null check. initialization: curr = root, next = root.left (basically maintain current and next nodes)
 loop until next node is available, left.next=right,
 if same level => right.next = next.left, cur = cur.next; else cur=next, next=cur.left
-0129 -> Sum root to leaf node
-- null check, add to sum. append rootVal to str, traverse left, traverse right.
-0144 -> Pre order traversal
-- CLR
-0145 -> Post order traversal
-- LRC
-
-0199 -> Right side view
-- null check, (currDepth == res.size) => append in res, recurse(right), recurse(left) [note: only 1 elem per level]
-- do level order traversal, first insert right and than left, at each level add 0th element to result
-
-0226 -> Invert binary tree
-- null check. left=recurse(right), right=recurse(left) return root.
-0236 -> Lowest common ancestor
-- null=>False. l=recurse(left),r=recurse(right). if curr= p or q => m=True. if m+l+p>=2=>ans=m. return (l or r or m)
-
-0257 -> Binary tree paths
-- leaf check=> append in res. add left.val recurse(left) remove add left.val, same as left for right.
 
 0404 -> Sum of left leaves
 - pass childSide string as "left" or "right" and if leaf node and left leave than return root.val.  summ += recurse()
 
-0508 -> Most frequent subtree sum
-- post order traversal, put additions into global res dict. return max occuring nums from res dict.
-0513 -> Find bottom left tree value
-- level order traversal from right to left. return last node.
-- track max_height and last_val. at end of traversal return last_val.
-0515 -> Find largest value in each tree row
-- level order traversal. track max val at each row and append in result.
 0543 -> Diameter of binary tree
 - root check, return 0. l=recurse(left), r=recurse(right), globalmax=(gm,1+l+r), return max(1+l,1+r). return gm-1
 
 0563 -> Binary tree tilt
 - leaf check, return 0. l=recurse(left), r=recurse(right). return abs(l-r)
 
-0606 -> Constructing string from binary tree
-- do preorder traversal and place val in string as '(' val, recurse(left), recurse(right), ')'.
-0617 -> Merge two binary trees
-- t1=null=>return t2, t2=null=>return t1. t1.val+=t2.val, t1.left=recurse(t1.left,t2.left), right, return t1.
+0572 -> Subtree of another tree
+TRICK: use isSame as util.
+- compare each node of s with root of t. if check isSame true than return. else traverse subtrees of s.
+
 0623 -> Add one row to tree
 - look if curr_depth==d => root.left=newNode, newNode.l.l=root.l, same for right.  else recurse(l, d+1), recurse(r, d+1)
 https://leetcode.com/problems/add-one-row-to-tree/solution/
-0637 -> Average of levels in binary tree
-- level order traversal
 
-0662 -> Maximum width of binary tree
-- Level order traversal. in queue keep entries as (node, depth, pos).
-PYTHON: for node, depth, pos in queue:
-if node: append(left, depth+1, 2*pos), append(right, depth+1, 2*pos+1), than check if depth changed => left = pos.
-ans = max(last appended node's pos - left [a.k.a in this depth first node's pos] + 1, ans)
+0654 -> Maximum binary tree
+PYTHON: max_idx = numpy.argmax(nums) can be used to find idx of max num. than max_val = nums[max_idx]
+PYTHON: max_val = max(nums) than max_idx = nums.index(max_val)
+- find max, create node with max as val, node.l=recurse(nums[:max_idx]), node.r=recurse(nums[max_idx+1:]), return node
+0998 -> Maximum binary tree 2
+OBSERVE: root is bigger than any val in entire subtree, so we only need to check new val with root val.
+OBSERVE: new val in appended, so it can only go in right subtree due to given maximum binary tree condition.
+- [TAIL CASE] root None ==> create obj, return obj.
+    [ROOT CASE] root.val <= val ==> create obj, obj.left = root, return obj.
+    [SOMEWHERE IN BETWEEN CASE] root.val > val ==> root.right = recurse(root.right, val), return root.
+
 0663 -> Equal tree partition
 OBSERVE: to have two trees of equal value, the value needs to be = total val of original tree / 2.
 - create set of sum of values of all subtrees. set.add(root.val + recurse(root.left, set) + recurse(root.right, set))
@@ -595,32 +613,119 @@ VIDEO: https://www.youtube.com/watch?v=nPtARJ2cYrg
 0865 -> Smallest subtree with deepest nodes
 - https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/solution/
 
-0965 -> Univalued binary tree
-- any traversal. util(root, univalue).
-
-1302 -> Deepest leaves sum
-- level order traversal, sum will need to reset after each level until last level sum is counted.
-https://leetcode.com/problems/deepest-leaves-sum/discuss/463248/Java-BFS-Clean-code-O(N)
-1315 -> Sum of nodes with even valued grand parents
-- send parent and grandparent is odd or even at below level, and check if gp is even than add root's value to global sum
-- at curr level, if val is even, add grand child's values into global sum.
-
 1367 -> Linked list in binary tree
 - Base case: if tree is finished=> if list is also finished=>true. if list is finished=>true (irrespective of tree)
 if root and tree doesn't match => start list from beginning again and recurse tree left and right
 else => move to next node of list and move to left and right of tree.
+
 1373 -> Maximum sum BST in a binary tree
 - https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/discuss/531800/Python-Easy-traversal-with-explanation
+
+INCOMPLETE: 0114, 0117
+
+--------------------------------------------------------------
+Classic Binary Tree Questions
+
+0236 -> Lowest common ancestor
+- null=>False. l=recurse(left),r=recurse(right). if curr= p or q => m=True. if m+l+p>=2=>ans=m. return (l or r or m)
+
+--------------------------------------------------------------
+Depth Based Return Traversal Questions
+
+0104 -> Maximum depth of binary tree
+- check null, return 1 + max(findDepth(left), findDepth(right))
+
+0110 -> Balanced binary tree
+- null=>0. left=recurse(left), right=recurse(right). anytime(-1)=>-1. diff(left,right)>1=>-1. return max(left,right)+1
+
+0111 -> Minimum depth of binary tree
+- null check. return (left or right = 0) ? left+right+1 : 1+min(recurse(left), recurse(right))
+
+--------------------------------------------------------------
+IN-PRE-POST Order Traversal Questions
+
+0094 -> Inorder traversal
+- base case. L->C->R
+0100 -> Same Tree
+- any traversal
+0144 -> Pre order traversal
+- CLR
+0145 -> Post order traversal
+- LRC
+0965 -> Univalued binary tree
+- any traversal. util(root, univalue).
+
+0112 -> Path Sum
+- null check, sum check. add, recurse. anytime(true)=>true.
+0113 -> Path Sum 2 (return list of paths)
+- null check, sum check, append list. add, recurse.
+0129 -> Sum root to leaf node
+- null check, add to sum. append rootVal to str, traverse left, traverse right.
+0508 -> Most frequent subtree sum
+- post order traversal, put additions into global res dict. return max occuring nums from res dict.
+
+0606 -> Constructing string from binary tree
+- do preorder traversal and place val in string as '(' val, recurse(left), recurse(right), ')'.
+
+0617 -> Merge two binary trees
+- t1=null=>return t2, t2=null=>return t1. t1.val+=t2.val, t1.left=recurse(t1.left,t2.left), right, return t1.
+
+1325 -> Delete leaves with a given value
+- null check. post order traversal. return None if leaf else return root
+
 1379 -> Find a Corresponding Node of a Binary Tree in a Clone of That Tree
 - null check. if target = orig => return clone, recurse(left), recurse(right) => success=>return clone, return None.
 
-INCOMPLETE: 0114, 0117
+--------------------------------------------------------------
+LEVEL Order Traversal Questions
+
+0102 -> Level order traversal
+- queue push. while queue, pop, put in result, push left, push right. keep count=len(queue) to change level.
+0107 -> Level order traversal 2 (reverse order)
+- do regular level order traversal and reverse the list
+
+0103 -> Zigzag level order traversal
+- maintain level by doing modulo by 2
+- maintain tempList and flag for level, reverse tempList based on flag, flip flag when queue empties
+
+0199 -> Right side view
+- null check, (currDepth == res.size) => append in res, recurse(right), recurse(left) [note: only 1 elem per level]
+- do level order traversal, first insert right and than left, at each level add 0th element to result
+
+0513 -> Find bottom left tree value
+- level order traversal from right to left. return last node.
+- track max_height and last_val. at end of traversal return last_val.
+
+0515 -> Find largest value in each tree row
+- level order traversal. track max val at each row and append in result.
+0637 -> Average of levels in binary tree
+- level order traversal
+1302 -> Deepest leaves sum
+- level order traversal, sum will need to reset after each level until last level sum is counted.
+https://leetcode.com/problems/deepest-leaves-sum/discuss/463248/Java-BFS-Clean-code-O(N)
+
+0662 -> Maximum width of binary tree
+- Level order traversal. in queue keep entries as (node, depth, pos).
+PYTHON: for node, depth, pos in queue:
+if node: append(left, depth+1, 2*pos), append(right, depth+1, 2*pos+1), than check if depth changed => left = pos.
+ans = max(last appended node's pos - left [a.k.a in this depth first node's pos] + 1, ans)
+
+0958 -> Check completeness of binary tree
+TRICK: first of all, if left child is null and right child is not null ==> return False
+    secondly, break loop after you find first null right child.
+    then, all rest of the nodes in queue must have both children null, otherwise ==> return False
+- level order traversal with above TRICK.
+
+1161 -> Maximum Level Sum of a Binary Tree
+- check sum of queue at each level
+
+1315 -> Sum of nodes with even valued grand parents
+- send parent and grandparent is odd or even at below level, and check if gp is even than add root's value to global sum
+- at curr level, if val is even, add grand child's values into global sum.
 
 ------------------------------------------------------------------------------------------------------------------------
 Binary Search Tree Questions
 
-0074 -> Search a 2D matrix
-- use l=0, r=m*n-1. do binary search. row = mid/m, col = mid%m.
 0098 -> Validate Binary Search Tree
 - check null. check min < val < max. fn(left, minrange, maxrange). fn(right, minrange, maxrange)
 0099 -> Recover binary search tree
@@ -642,9 +747,6 @@ next => pop from stack, pushall(poppedNode.right), return poppedNode.val
 - Inorder traversal. check if count of nodes seen == k.
 0235 -> Lowest common ancestor
 - null check. if both p and q are smaller than root.val => look in left subtree. elif vice versa. else return root(LCA).
-0240 -> Search a 2D matrix 2
-- start from top right corner. loop until col>=0 or row<len, if target found=>return,
-if target is smaller than col--, if target is bigger than row++.    => O(m+n)
 
 0450 -> Delete node from BST
 - None check, if node to be deleted is found,
@@ -653,11 +755,15 @@ if target is smaller than col--, if target is bigger than row++.    => O(m+n)
     case3: two child => find largest in left subtree, r.l=delete(largest in left subtree), root.val=largest, return root.
  else: r.l=delete(l, key), r.r=delete(r, key), return root.
 
+0501 -> Find Mod
+- do inorder traversal and keep counting until node.left.val == node.val. keep max_count
+
 0536 -> Convert BST to Greater tree
 - postorder traversal. recurse(right, summ), temp=root.val, root.val+=summ, summ+=temp, recurse(left, summ), ret summ.
+1038 -> Binary search tree to greater sum tree
+- util(root, prevSum) root null => return prevSum,
+rsum=util(right, prevSum), root.val+=rsum, lsum=util(left, prevSum), return lsum.
 
-0653 -> Two sum 4 - input is BST
-- inorder traversal. than two sum with two pointers.
 0669 -> Trim a BST
 - null check.
 if root.val<L => root=recurse(r), elif root.val>R => root=recurse(l), else r.l=recurse(l), r.r=recurse(r). return root.
@@ -668,10 +774,6 @@ if root.val<L => root=recurse(r), elif root.val>R => root=recurse(l), else r.l=r
 0776 -> Split BST (CRAM THIS)
 - https://www.youtube.com/watch?v=ADun2n_ueZQ
 - http://cqbbshuashua.blogspot.com/2018/07/776-split-bst.html
-
-1038 -> Binary search tree to greater sum tree
-- util(root, prevSum) root null => return prevSum,
-rsum=util(right, prevSum), root.val+=rsum, lsum=util(left, prevSum), return lsum.
 
 INCOMPLETE: 0095
 
@@ -754,6 +856,15 @@ Dynamic Programming
 - form word through loop which is present in dict. than recurse and form next word. In case string gets over and word
 isn't found in dict than backtrack and add more chars to previous word.
 
+0221 -> Maximal Square
+TRICK: treat each element as bottom-right corner of square and see which is the minimum square it can build here.
+https://www.youtube.com/watch?v=FO7VXDfS8Gk
+- dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]
+1277 -> Count Square Submatrices with All Ones
+- same as above. just for result use counter and than do res += k*v.
+0084 -> Largest Rectangle in Histogram (Followup of 0221)
+0085 -> Maximal Rectangle (Followup of 0221 & 0084)
+
 0256 -> Paint House
 - cost of painting house i with color R is = cost[i][R] + min(cost[i-1][G], cost[i-1][B]). As prev house need diff color
 same with other two possibilities of painting house i with color G or B. Thus, cost will increase cumulatively.
@@ -775,6 +886,13 @@ Graph Questions
 - TRICK: color the nodes with 0=>no color, 1=>blue, -1=>red. loop through all nodes (BFS), pick a node and perform (DFS)
 and check if any of connected nodes have same color as this node's =>return False.
 mark opposite color for each level (DFS).
+
+1162 -> As far from land as possible (CODE THIS)
+https://leetcode.com/problems/as-far-from-land-as-possible/discuss/360963/C%2B%2B-with-picture-DFS-and-BFS
+
+1267 -> Count servers that communicate
+TRICK: preprocess an array of m rows and another of n cols to have count of servers in each row and each col.
+- to check if server communicates, check if in that row (OR col) contains any other server (>1), and increment count.
 
 1311 -> Get watched videos by your friends
 - graph traversal using recursion until level becomes 0. use set to hold result and visited IDs.
@@ -839,6 +957,12 @@ loop through map, append in result any val that has len(val)>1
 0760 -> Find anagram mappings
 - create map out of B (val, index in B). lookup map using A, and create response.
 
+0804 -> Unique morse code words
+- convert each word to morse and keep a set.
+
+0884 -> Uncommon words from two sentences
+- Two Counter. for both counters, check each word that occurs once in other counter.
+
 0890 -> Find and replace patterns
 PYTHON: filter function -> https://www.programiz.com/python-programming/methods/built-in/filter
 - Two Map. go through each word, create dict, (word char, target char) and (target char, word char)
@@ -865,6 +989,9 @@ sort(counter.keys()), loop through key, construct result list. return res.
 PYTHON: to check all vals in map is same = (len(set(hashmap.values())) == 1)
 - hashmap with key=0 to k-1, val=cnt of num%k. reduce nums in list to fit in 0 to k-1. return if all vals in map is same
 
+1346 -> Check if N and its double exist
+- keep counter. if count for 0 is > 1 return True. Go through loop and check if num has its double exist.
+
 1366 -> Rank team by votes
 - hashmap (team, score). max_score = number of teams. 1st->max_score, 2nd->max-1 and so on.
 loop through votes and than teams and increase score in hashmap. lastly sort using values and return keys.
@@ -875,6 +1002,9 @@ PYTHON: sorted(counter) gives list of keys in sorted order.
 
 1394 -> Find lucky integer in an array
 - use counter. for each pair, if k==v: res = max(res, v). return res
+
+1426 -> Count elements
+- counter, loop k,v in items, check if k+1 is present in counter, than add v in result.
 
 ------------------------------------------------------------------------------------------------------------------------
 Heap Questions
@@ -891,7 +1021,33 @@ Heap Questions
 go through list and insert -ve-profit in minHeap which has capital < W. (in this way max Profit will be at heap's root)
 than pop and add this profit into W and continue until projects are left.
 
+1086 -> High Five
+PYTHON: to use max_heap => simplest way is to multiple numbers with -1 and use heapq (min_heap)
+- create heaps for each student, than push marks in corresponding heaps. pop top5 marks for each student, calc avg.
+
 INCOMPLETE: 313
+
+------------------------------------------------------------------------------------------------------------------------
+Line Sweep Questions
+
+0252 -> Meeting Rooms
+- sort. check prev interval's end time with current interval's start time.
+0253 -> Meeting Rooms 2
+- use heap to store meeting-end-times. if next meeting's start time falls below min-end-time than we need new room.
+0452 -> Minimum number of arrays to burst balloons
+- TRICK: find minimum length of overlapping balloons where you can shot arrow.
+  sort by start. shrink overlapping balloons by prev_start=max(prev_start, curr_start), prev_end=min(prev_end, curr_end)
+0763 -> Partition Labels
+- construct map to store c: last idx of c's occurence.
+    loop through s and keep extending anchor with each c's location, if i == anchor ==> append in result, reset anchor.
+1229 -> Meeting Scheduler
+- TRICK: determine which slot ends first and move to next slot for that person
+- TRICK: to find intersection ==> duration = min(end1, end2) - max(start1, start2). It will be -ve if no intersection.
+  sort both by start. while loop, find intersection, check, move pointer to next slot based on end_time.
+1272 -> Remove Interval
+- for each interval simply check where it falls with respect to given interval.
+1288 -> Remove Covered Interval
+- sort by start and than by end. check if prev end can not consist curr end ==> increment count, update prev.
 
 ------------------------------------------------------------------------------------------------------------------------
 Logic Question
@@ -1080,6 +1236,14 @@ than traverse board and make any remaining 0s as X. than traverse board and make
 0289 -> Game of Life
 - traverse. count live neighbours of cell. based on count decide if cell has to be live or dead.
 
+0304 -> Range sum queries - 2D matrix - Immutable
+THOUGHT: matrix is not going to change and there will be thousands of queries, so we can do some pre-process.
+TRICK: see matrix as list of columns. have cumulative sum in each column.   O(mn)
+    in sumRegion -> for col1 to col2, sum += (arr[row2][c] - arr[row1-1][c])    O(n)
+TRICK: calculate cumulative sum as, Sum(ABCD)=Sum(OD)−Sum(OB)−Sum(OC)+Sum(OA)
+    dp[r + 1][c + 1] = dp[r + 1][c] + dp[r][c + 1] + matrix[r][c] - dp[r][c];
+    in sumRegion -> dp[row2 + 1][col2 + 1] - dp[row1][col2 + 1] - dp[row2 + 1][col1] + dp[row1][col1];
+
 0463 -> Island Perimeter [similar: 0695, 0200, 0694, 1254, 0286]
 - find first one. than recursively within boundary mark visited and check perimiter (4 - num of neighbours that are 1)
 
@@ -1115,6 +1279,9 @@ PYTHON: column(grid, i) => return [row[i] for row in grid]
 for left-right side view, max of row will cast shadow. so cnt += sum( max of each row )
 for up-down side view, max of columns will cast shadow. so cnt += sum( max of each column )
 PYTHON: def column(grid, i)  => return [row[i] for row in grid]
+
+1252 -> Cells with odd values in a matrix
+- construct matrix and use indices to increment row and col values. at the end, check odd values in matrix.
 
 1254 -> Number of closed islands [similar: 0463, 0200, 0694, 0695, 0286]
 TRICK: when marking visited, mark with island counter. if boundary is hit don't increase island counter.
@@ -1266,6 +1433,16 @@ https://leetcode.com/problems/divisor-game/discuss/296784/Come-on-in-different-e
 1103 -> Distribute candies to people
 - loop until candies are over, use modulo to decide person, keep increasing i.
 
+1134 -> Armstrong number
+NOTE: powerfn(x,y) => y=0=>return 1, if y is even => pow(x,y/2)*pow(x,y/2) else => x*pow(x,y/2)*pow(x,y/2).
+- count digits (say n), loop number digit by digit, add nth power of digit. return summ == x.
+
+1276 -> Number of burgers without wasting ingredients
+OBSERVE: 1) number of tomatoes have to even. 2) number of tomatoes has to be at least 2*cheese.
+TRICK: jumbo + small = cheese..(1) AND
+      4*jumbo + 2*small = tomatoes..(2)
+    Solve (1) and (2) in notebook, and than code the equation.
+
 1281 -> Subtract product and sum of digits of a number
 - separate out digits, maintain sum and prod. return prod - sum.
 A = map(int, str(n)) => converts string to array of integer digits. return reduce(operator.mul, A) - sum(A)
@@ -1341,12 +1518,34 @@ Sliding window
 0003 -> Longest substring without repeating characters
 - sliding window with hashmap (key, val) = (char, last appeared index)
 
+0076 -> Minimum window substring
+G4G: https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
+PYTHON: Counter.update() is used to add count. Counter.subtract() is used to subtract count.
+TRICK: keep counter of pattern, keep counter of window. check if all chars in pattern exist in window ==> update.
+    if char missing => move end. if all char exist => move start.
+
+0239 -> Sliding window maximum
+G4G: https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/
+SOLUTION 1: O(n)
+    PYTHON: Collections.deque(), use functions pop(), popleft(), append(), appendleft()
+    TRICK: maintain deque (of indices not elements) in reverse sorted order.
+        Drop from front when indices drop out of window.
+        Drop from rear all indices which have values smaller than current value in consideration.
+        Insert current indice in rear.
+SOLUTION 2: Use Max Heap ==> O(nlgn)
+SOLUTION 3: Use Self balancing Tree ==> O(nlgn)
+
 0340 -> Longest substring with at most k repeating characters
 - sliding window with hashmap (key, val) = (char, number of times character appeared)
 https://www.programcreek.com/2013/02/longest-substring-which-contains-2-unique-characters/
 
-0560 -> Subarray sum equals k
+0438 -> Find all anagrams in a string [Similar: 0076]
+G4G: https://www.geeksforgeeks.org/anagram-substring-search-search-permutations/
+- use Counter to store pattern count and than go through each window of k size to match with pattern's counter.
+
+0560 -> Subarray sum equals k (ALSO greater than k)
 - maintain start,end,cur_sum,res_cnt. for each num, add in cur_sum, if cur_sum>target=>start++ else end++.
+
 0567 -> Permutation in string
 - TRICK: for permutation of string s1 to be present in another string s2,
 counter(s1) must be exactly equal to counter(some part of s2 of len=s1)
@@ -1377,6 +1576,16 @@ we will maintain where was first instance of each character was found (say in li
 we will move the end pointer further every time. after moving end pointer, answer has to be incremented by min(first).
 why? because first occurence of char happens at index 'first'. so everything between [0, first] also can make valid substring.
 https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/discuss/516977/JavaC%2B%2BPython-Easy-and-Concise
+
+1423 -> Maximum points you can obtain from cards
+THOUGHT: you may feel that its easy, just check first and last card and take which is bigger. -> Greedy
+    but this will not work for case like, [1,2,3,4,5,6,1] -> taking 1 from right is better than taking from left.
+    we can also have case like, [50, 0, 0, 100, 0, 0], k=3 -> taking from right is better than taking from left
+    You need exhaustive check (backtrack), (for k=3) -> LLL, LLR, LRR, RRR
+    But backtrack takes O(n^2) time
+TRICK: x=sum of all n elems. y=sum of n-k elems. => z = x-y = sum of k elems.
+    run a sliding window of n-k elems from 0th idx to n-kth index. and keep max value.
+OPTIMIZE: do not calculate sum of n-k elems every time you slide. only subtract left and add right number.
 
 ------------------------------------------------------------------------------------------------------------------------
 Sorting Questions
@@ -1414,8 +1623,39 @@ Stack Questions
 
 0150 -> Evaluate reverse polish notation
 - number=>push, expression=>pop1 and pop2, result=>push
+
 0155 -> Min Stack
+- without extra space: manipulate stack data during push to construct min when needed, maintain a variable minEle
+    https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
+    push(x) ==> empty stack ==> push x, minEle=x
+                non-empty stack ==> x>=minEle ==> push x
+                                    x<minEle ==> push 2*x-minEle, minEle=x
+    pop() ==> pop (say y) ==> y>minEle ==> return y
+                          ==> y<=minEle ==> minEle=2*minEle-y, return prev_minEle
+    getMin() ==> return minEle
 - maintain each entry in stack as tuple (element, min-element in stack till now).
+    https://www.geeksforgeeks.org/create-customized-data-structure-evaluates-functions-o1/
+- Two stacks (normal_stack=s1 and aux_stack=s2)
+    https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/
+    push( compare x to top of s1 (say y), if x<y ==> push x in s2, push x in s1,
+                                          if x>y and top of s2 != y ==> push y in s2, push x in s1)
+    pop( pop from s1 (say x), if top of s2 == x ==> pop from s2 )
+
+0232 -> Implement queue using stacks
+https://www.geeksforgeeks.org/queue-using-stacks/
+- Two stacks. enqueue suffering by O(n)
+    enqueue( pop everything from s1 and push in s2, than push in stack1, pop everything from s2 and push in s1)
+    deque( pop from s1 )
+- Two stacks (better). deque only suffering by O(n) sometimes but generally performs at O(1)
+    enqueue( push in s1 )
+    deque( only if s2 is empty, pop from s1 and push in s2, pop from s2 )
+- Use function call stack
+    enqueue( push in s1 )
+    deque( recursively keep calling function until stack size is 1, return res and recreate stack as coming back )
+
+0402 -> Remove K digits
+OBSERVE: digits that are greater than later digits MUST be discarded.
+TRICK: pop from stack digits which are greater than current digit. and than push current digit in stack.
 
 0503 -> Next greater element 2 (circular array)
 [Technique] repeat original array and make it of size 2*n.
@@ -1428,6 +1668,15 @@ Stack Questions
 
 0682 -> Baseball game
 - loop through arr, push int, pop at 'C', peek double push at 'D', pop peek add push push at '+'
+
+0844 -> Backspace string compare
+- pop when '#' else push, compare at the end.
+
+0901 -> Online stock span OR stock span problem [CODE THIS]
+https://www.geeksforgeeks.org/the-stock-span-problem/
+TRICK: keep stack of indices.
+- for each val, pop from stack all elems that are < val,
+     span for this idx is=> if stack empty=>idx+1 else=>idx-stack[top], than push curr elem's idx.
 
 0921 -> Minimum add to make a valid paranthesis
 - '('=>push, ')'=>try to pop if can't than increase cnt. return cnt + "any open brackets" a.k.a len(stack)
@@ -1456,6 +1705,13 @@ INCOMPLETE: 0227, 0331
 
 ------------------------------------------------------------------------------------------------------------------------
 String Questions
+
+0005 -> Longest Palindromic Substring
+Trick: Expand around center.
+- write expand method that gets start and end. if chars match start--, end++.
+    In main method, just use expand for odd and even possibilities expand(i,i), expand(i,i+1).
+0647 -> Palindromic Substrings [Similar: 0005]
+- same as 0005. But aggregate all possible substrings.
 
 0008 -> String to Integer (atoi)
 - multiply by 10 and ascii conversion logic
@@ -1584,6 +1840,9 @@ at the end count of all 'a', 'b', 'c' should be same.
 1295 -> Find numbers with even number of digits
 - sum(len(n) % 2 == 0 for n in map(str, nums)) OR sum(len(str(n)) % 2 == 0 for n in nums)
 
+1309 -> Decrypt String from Alphabet to Integer Mapping
+- at curr idx check if idx+2 is '#', than pick 2 chars else 1 char, and apply chr(ord('a') + int(word[idx:idx+2]) - 1)
+
 1324 -> Print words vertically
 - num of colums = max length word from list. pad word at end with spaces if needed.
 for each word, append chars in result list column wise.cd
@@ -1597,6 +1856,10 @@ otherwise return 2. where 1 step to remove all 'a's and another for all 'b's
 - return 'a'*(n-1)+'b' if (n%2==0) else 'a'*n
 1392 -> Longest happy prefix
 - take len from n-1 to 0 and loop, compare if s[:x]==s[len(s)-x:] => return answer
+
+1427 -> Perform string shifts
+- calculate total rotation by subtracting left and adding right. final number tells you whether to rotate left or right
+and by how much. than simply rotate the string that much.
 
 INCOMPLETE: 0014, 0522
 
@@ -1644,6 +1907,16 @@ Priority Queue Questions
 
 ------------------------------------------------------------------------------------------------------------------------
 Queue Questions
+
+0225 -> Implement stack using queue
+- Two queues. push suffering by O(n)
+    push( deque everything from q1 and enqueue in q2, than enqueue in q1, deque everything from q2 and enqueue in q1)
+    OR
+    push( enqueue in q2, deque everything from q1 and enqueue in q2, change names of q1 and q2 )
+    pop( deque from q1 )
+- Two queues. pop suffering by O(n)
+    push( enqueue in q1 )
+    pop( deque everything except last one element from q1 and enqueue in q2, pop from q1, change names of q1 and q2 )
 
 0346 -> Moving average from data stream
 - use queue to hold k entries. when new entry comes, add it in sum, if no space left, pop and subtract, append in queue.
